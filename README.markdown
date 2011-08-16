@@ -24,6 +24,12 @@ http://rdoc.info/projects/mfojtik/rbmobile
 ### Installation
 
     gem install rbmobile
+    
+### Demo
+
+    $ gem install sinatra
+    $ ruby app.rb
+    $ open http://localhost:4567/ 
 
 ### Sinatra
 
@@ -32,7 +38,8 @@ http://rdoc.info/projects/mfojtik/rbmobile
 
 ### Rails(?)
 
-    app/helpers/application_helper.rb:
+app/helpers/application_helper.rb:
+
     require 'mobile_helpers'
     include RBMobile::Helpers
 
@@ -40,7 +47,7 @@ http://rdoc.info/projects/mfojtik/rbmobile
 
 - Finish forms.
 
-== LICENSE:
+### LICENSE:
 
 Copyright (c) 20011 Michal Fojtik
 
