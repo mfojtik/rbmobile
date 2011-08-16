@@ -4,13 +4,13 @@
     %title Page
     = mobile_include
   %body
-    = page :theme => 'c', :id => 'test', :title => "Hello world" do
+    - page :theme => 'c', :id => 'test', :title => "Hello world" do
       = yield
-      = footer :fixed => true do
-        = buttongroup do
+      - footer :fixed => true do
+        - buttongroup do
           = button :save, 'test.html', 'Save'
           = button :save, 'test.html', 'Save'
-        = navbar do
+        - navbar do
           = navigate_to 'a.html', 'One', :active => true
           = navigate_to 'b.html', 'Two', :icon => :delete
 

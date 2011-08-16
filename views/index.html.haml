@@ -5,11 +5,13 @@
 - content do
   %p
     Hello #{inline_button(:save, 'a.html', 'Save!', :theme => 'a')}
+  %h2 Grid
   - grid do
     - column do
       This is first
     - column do
       This is Second
+  %h2 Collapsables
   - collapse_set do
     - collapse 'This is collapsible' do
       Hello world!
@@ -17,10 +19,10 @@
       Hello world!
     - collapse 'This is collapsible' do
       Hello world!
-  %br
+  %h2 Lists
   - grid do
     - column do
-      - list :theme => 'a' do
+      - list :theme => 'a', :filter => true do
         = divider "This is divider"
         - item do
           Hello World!
@@ -32,4 +34,7 @@
         - item do
           Hello World!
         - link 'a.html', :icon => 'alert' do
+          This is a link
+        - link 'a.html', :theme => 'a'  do
+          = thumb '/machine.png'
           This is a link
