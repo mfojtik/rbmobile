@@ -5,25 +5,14 @@
 
 <html>
 <head>
-  <title>button (RBMobile::Helpers)</title>
+  <title>content (RBMobile::Helpers)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/mobile_helpers.rb, line 305</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">button</span>(<span class="ruby-identifier">kind</span>, <span class="ruby-identifier">url</span>, <span class="ruby-identifier">label</span>, <span class="ruby-identifier">opts</span>={})
-      <span class="ruby-identifier">options</span> = {
-        <span class="ruby-value str">'data-icon'</span><span class="ruby-value str">'data-icon'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">kind</span>,
-        <span class="ruby-value str">'data-role'</span><span class="ruby-value str">'data-role'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:button</span>,
-        <span class="ruby-identifier">:href</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">url</span>
-      }.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">opts</span>)
-      <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-value str">'data-ajax'</span><span class="ruby-value str">'data-ajax'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'false'</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">not</span> <span class="ruby-constant">RBMobile</span><span class="ruby-operator">::</span><span class="ruby-identifier">config</span>[<span class="ruby-identifier">:ajax</span>] <span class="ruby-keyword kw">and</span> <span class="ruby-keyword kw">not</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:ajax</span>)
-      <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-value str">'data-theme'</span><span class="ruby-value str">'data-theme'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:theme</span>)) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:theme</span>]
-      <span class="ruby-identifier">capture_haml</span> <span class="ruby-keyword kw">do</span>
-        <span class="ruby-identifier">haml_tag</span> <span class="ruby-identifier">:a</span>, <span class="ruby-identifier">options</span> <span class="ruby-keyword kw">do</span>
-          <span class="ruby-identifier">haml_concat</span> <span class="ruby-identifier">label</span>
-        <span class="ruby-keyword kw">end</span>
-      <span class="ruby-keyword kw">end</span>
+  <pre><span class="ruby-comment cmt"># File lib/mobile_helpers.rb, line 146</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">content</span>(<span class="ruby-identifier">opts</span>={}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+      <span class="ruby-identifier">role</span> <span class="ruby-identifier">:content</span>, <span class="ruby-identifier">opts</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
     <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

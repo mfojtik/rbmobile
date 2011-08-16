@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>test_it_generates_basic_navbar_role (TestRoles)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File tests/basic_test.rb, line 60</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_it_generates_basic_navbar_role</span>
+    <span class="ruby-identifier">output</span> = <span class="ruby-identifier">capture_haml</span> <span class="ruby-keyword kw">do</span>
+      <span class="ruby-identifier">page</span> <span class="ruby-keyword kw">do</span>
+        <span class="ruby-identifier">footer</span> <span class="ruby-keyword kw">do</span>
+          <span class="ruby-identifier">navbar</span> <span class="ruby-keyword kw">do</span>
+            <span class="ruby-identifier">haml_concat</span> <span class="ruby-identifier">navigate_to</span> <span class="ruby-value str">&quot;a.html&quot;</span>, <span class="ruby-value str">&quot;Test&quot;</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-identifier">retval</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">HTML</span>(<span class="ruby-identifier">output</span>)
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">retval</span>.<span class="ruby-identifier">css</span>(<span class="ruby-value str">&quot;div[@data-role=page] &gt; div&quot;</span>).<span class="ruby-identifier">size</span>, <span class="ruby-value">1</span>
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">retval</span>.<span class="ruby-identifier">css</span>(<span class="ruby-value str">&quot;div[@data-role=page] div&quot;</span>).<span class="ruby-identifier">first</span>[<span class="ruby-value str">'data-role'</span><span class="ruby-value str">'data-role'</span>], <span class="ruby-value str">&quot;footer&quot;</span>
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">retval</span>.<span class="ruby-identifier">css</span>(<span class="ruby-value str">&quot;div[@data-role=page] div[@data-role=footer] div&quot;</span>).<span class="ruby-identifier">first</span>[<span class="ruby-value str">'data-role'</span><span class="ruby-value str">'data-role'</span>], <span class="ruby-value str">&quot;navbar&quot;</span>
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">retval</span>.<span class="ruby-identifier">css</span>(<span class="ruby-value str">&quot;div[@data-role=page] div[@data-role=footer] div&quot;</span>).<span class="ruby-identifier">size</span>, <span class="ruby-value">1</span>
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">retval</span>.<span class="ruby-identifier">css</span>(<span class="ruby-value str">&quot;div[@data-role=page] div[@data-role=footer] div ul&quot;</span>).<span class="ruby-identifier">size</span>, <span class="ruby-value">1</span>
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">retval</span>.<span class="ruby-identifier">css</span>(<span class="ruby-value str">&quot;div[@data-role=page] div[@data-role=footer] div ul li&quot;</span>).<span class="ruby-identifier">size</span>, <span class="ruby-value">1</span>
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">retval</span>.<span class="ruby-identifier">css</span>(<span class="ruby-value str">&quot;div[@data-role=page] div[@data-role=footer] div ul li a&quot;</span>).<span class="ruby-identifier">size</span>, <span class="ruby-value">1</span>
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">retval</span>.<span class="ruby-identifier">css</span>(<span class="ruby-value str">&quot;div[@data-role=page] div[@data-role=footer] div ul li a&quot;</span>).<span class="ruby-identifier">first</span>[<span class="ruby-identifier">:href</span>], <span class="ruby-value str">'a.html'</span>
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">retval</span>.<span class="ruby-identifier">css</span>(<span class="ruby-value str">&quot;div[@data-role=page] div[@data-role=footer] div ul li a&quot;</span>).<span class="ruby-identifier">first</span>.<span class="ruby-identifier">text</span>.<span class="ruby-identifier">strip</span>, <span class="ruby-value str">'Test'</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

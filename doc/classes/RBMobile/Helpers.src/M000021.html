@@ -5,18 +5,16 @@
 
 <html>
 <head>
-  <title>item (RBMobile::Helpers)</title>
+  <title>grid (RBMobile::Helpers)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/mobile_helpers.rb, line 466</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">item</span>(<span class="ruby-identifier">opts</span>={}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-      <span class="ruby-identifier">opts</span>[<span class="ruby-value str">'data-icon'</span><span class="ruby-value str">'data-icon'</span>] = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:icon</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:icon</span>]
-      <span class="ruby-identifier">opts</span>[<span class="ruby-value str">'data-theme'</span><span class="ruby-value str">'data-theme'</span>] = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:theme</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:theme</span>]
-      <span class="ruby-identifier">haml_tag</span> <span class="ruby-identifier">:li</span>, <span class="ruby-identifier">opts</span> <span class="ruby-keyword kw">do</span>
+  <pre><span class="ruby-comment cmt"># File lib/mobile_helpers.rb, line 357</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">grid</span>(<span class="ruby-identifier">columns</span>=<span class="ruby-value">2</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+      <span class="ruby-ivar">@columns</span> = [<span class="ruby-value str">'ui-block-a'</span>, <span class="ruby-value str">'ui-block-b'</span>, <span class="ruby-value str">'ui-block-c'</span>].<span class="ruby-identifier">reverse</span>
+      <span class="ruby-identifier">haml_tag</span> <span class="ruby-identifier">:div</span>, <span class="ruby-identifier">:class</span> =<span class="ruby-operator">&gt;</span> (<span class="ruby-identifier">columns</span><span class="ruby-operator">==</span><span class="ruby-value">2</span>) <span class="ruby-operator">?</span> <span class="ruby-value str">'ui-grid-a'</span> <span class="ruby-operator">:</span> <span class="ruby-value str">'ui-grid-b'</span> <span class="ruby-keyword kw">do</span>
         <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">block_given?</span>
-        <span class="ruby-identifier">haml_tag</span>(<span class="ruby-identifier">:img</span>, <span class="ruby-identifier">:src</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:item_icon_url</span>], <span class="ruby-identifier">:class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'ui-li-icon'</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:item_icon_url</span>]
       <span class="ruby-keyword kw">end</span>
     <span class="ruby-keyword kw">end</span></pre>
 </body>

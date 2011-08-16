@@ -5,24 +5,20 @@
 
 <html>
 <head>
-  <title>navigate_to (RBMobile::Helpers)</title>
+  <title>mobile_include (RBMobile::Helpers)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/mobile_helpers.rb, line 221</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">navigate_to</span>(<span class="ruby-identifier">url</span>, <span class="ruby-identifier">label</span>, <span class="ruby-identifier">opts</span>={})
-      <span class="ruby-identifier">options</span> = {
-        <span class="ruby-identifier">:href</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">url</span>
-      }.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">opts</span>)
-      <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'ui-btn-active'</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:active</span>)
-      <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-value str">'data-icon'</span><span class="ruby-value str">'data-icon'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:icon</span>)) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:icon</span>]
+  <pre><span class="ruby-comment cmt"># File lib/mobile_helpers.rb, line 72</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">mobile_include</span>(<span class="ruby-identifier">opts</span>={})
       <span class="ruby-identifier">capture_haml</span> <span class="ruby-keyword kw">do</span>
-        <span class="ruby-identifier">haml_tag</span> <span class="ruby-identifier">:li</span> <span class="ruby-keyword kw">do</span>
-          <span class="ruby-identifier">haml_tag</span> <span class="ruby-identifier">:a</span>, <span class="ruby-identifier">options</span> <span class="ruby-keyword kw">do</span>
-            <span class="ruby-identifier">haml_concat</span> <span class="ruby-identifier">label</span>
-          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-identifier">haml_tag</span> <span class="ruby-identifier">:meta</span>, <span class="ruby-identifier">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'viewport'</span>, <span class="ruby-identifier">:content</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'width=device-width, initial-scale=1'</span>
+        <span class="ruby-identifier">haml_tag</span> <span class="ruby-identifier">:link</span>, <span class="ruby-identifier">:rel</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'stylesheet'</span>, <span class="ruby-identifier">:href</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;/#{JQUERY_MOBILE_VERSION}/#{JQUERY_MOBILE_VERSION}.min.css&quot;</span>
+        <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:no_jquery</span>]
+          <span class="ruby-identifier">haml_tag</span> <span class="ruby-identifier">:script</span>, <span class="ruby-identifier">:type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'text/javascript'</span>, <span class="ruby-identifier">:src</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;/#{JQUERY_VERSION}.min.js&quot;</span>
         <span class="ruby-keyword kw">end</span>
+        <span class="ruby-identifier">haml_tag</span> <span class="ruby-identifier">:script</span>, <span class="ruby-identifier">:type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'text/javascript'</span>, <span class="ruby-identifier">:src</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;/#{JQUERY_MOBILE_VERSION}/#{JQUERY_MOBILE_VERSION}.min.js&quot;</span>
       <span class="ruby-keyword kw">end</span>
     <span class="ruby-keyword kw">end</span></pre>
 </body>

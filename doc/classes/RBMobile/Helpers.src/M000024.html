@@ -5,17 +5,16 @@
 
 <html>
 <head>
-  <title>counter (RBMobile::Helpers)</title>
+  <title>collapse_set (RBMobile::Helpers)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/mobile_helpers.rb, line 523</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">counter</span>(<span class="ruby-identifier">value</span>)
-      <span class="ruby-identifier">capture_haml</span> <span class="ruby-keyword kw">do</span>
-        <span class="ruby-identifier">haml_tag</span> <span class="ruby-identifier">:span</span>, <span class="ruby-identifier">:class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'ui-li-count'</span> <span class="ruby-keyword kw">do</span>
-          <span class="ruby-identifier">haml_concat</span> <span class="ruby-identifier">value</span>
-        <span class="ruby-keyword kw">end</span>
+  <pre><span class="ruby-comment cmt"># File lib/mobile_helpers.rb, line 414</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">collapse_set</span>(<span class="ruby-identifier">opts</span>={}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+      <span class="ruby-ivar">@collapsed</span> = <span class="ruby-keyword kw">true</span>
+      <span class="ruby-identifier">role</span> <span class="ruby-value str">'collapsible-set'</span><span class="ruby-value str">'collapsible-set'</span>, <span class="ruby-identifier">opts</span> <span class="ruby-keyword kw">do</span>
+        <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">block_given?</span>
       <span class="ruby-keyword kw">end</span>
     <span class="ruby-keyword kw">end</span></pre>
 </body>
