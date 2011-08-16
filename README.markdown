@@ -25,9 +25,11 @@ http://rdoc.info/projects/mfojtik/rbmobile
 
     gem install rbmobile
     
-### Demo
+### Demo app
 
+    $ git clone git://github.com/mifo/rbmobile.git
     $ gem install sinatra sinatra-respond_to
+    $ cd rbmobile/example
     $ ruby app.rb
     $ open http://localhost:4567/ 
 
