@@ -18,7 +18,8 @@ http://rdoc.info/projects/mfojtik/rbmobile
   'public' folder
 - You should unzip JQuery mobile inside your 'public' folder:
 
-    $ wget http://code.jquery.com/mobile/1.0b2/jquery.mobile-1.0b2.zip -O public/jquery.mobile-1.0b2.zip
+    $ wget http://code.jquery.com/mobile/1.0b2/jquery.mobile-1.0b2.zip  \
+      -O public/jquery.mobile-1.0b2.zip
     $ cd public && unzip jquery.mobile-1.0b2.zip
 
 ### Installation
@@ -47,7 +48,8 @@ app/helpers/application_helper.rb:
 
 ### TODO:
 
-- Finish forms.
+- Finish with jquery.mobile forms
+- Make public directory configurable
 
 ### LICENSE:
 
