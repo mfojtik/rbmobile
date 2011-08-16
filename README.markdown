@@ -1,26 +1,66 @@
-# Ruby JQuery Mobile HAML helper
+# Ruby jquery.mobile
 
-A swiss knife for creating a hipster UI like from Apple
+A swiss knife for creating a hipster rich user-interfaces supposed to looks great on mobile devices.
 
 ### Description
 
 This project should help you to create more readable HAML templates for your
-mobile applications using http://jquerymobile.com framework.
+mobile application using http://jquerymobile.com framework.
 
+### Example
+
+Save your fingers! and write this code:
+
+    - page :theme => 'c' do
+      - header do
+        %h1 Page header
+      - content do
+        - list do
+          = divider "Awesome list"
+          - item do
+            Awesome list item
+      - footer do
+        - navbar do
+          - navigate_to 'a.html', 'Awesome', :icon => 'load'
+          - navigate_to 'b.html', 'Yeah!', :icon => 'save'
+
+Instead of this code:
+
+    %div{ :'data-role' => 'page', :'data-theme' => 'c'}
+      %div{ :'data-role' => 'header'}
+        %h1 Page header
+      %div{ :'data-role' => 'content'}
+        %ul{ :'data-role' => 'list-view'}
+          %li{ :'data-role' => 'listdivider'} Awesome list
+          %li Awesome list item
+      %div{ :'data-role' => 'footer' }
+        %div{ :'data-role' => 'navbar'}
+          %ul
+            %li
+              %a{ :href => 'a.html', :'data-icon' => :save } Awesome
+              %a{ :href => 'a.html', :'data-icon' => :save } Awesome
+
+And there is even more magic and autogenerator inside!
 
 ### Documentation
 
-http://rdoc.info/projects/mfojtik/rbmobile
+
+- RDoc: http://rdoc.info/projects/mfojtik/rbmobile
+- JQuery.Mobile: http://jquerymobile.com
 
 ### Requirements
 
 - You should include JQuery library in your project or place this library into
-  'public' folder
+  'public' folder (it should be accessible in /jquery-xxx.min.js)
+
 - You should unzip JQuery mobile inside your 'public' folder:
 
     $ wget http://code.jquery.com/mobile/1.0b2/jquery.mobile-1.0b2.zip  \
       -O public/jquery.mobile-1.0b2.zip
     $ cd public && unzip jquery.mobile-1.0b2.zip
+  
+- JQuery.mobile folder should be accessible in /jquery.mobile-xxx/
+
 
 ### Installation
 
