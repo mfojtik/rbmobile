@@ -1,0 +1,35 @@
+- header do
+  = button :delete, 'test.html', 'Delete', :ajax => true
+  %h1 Test2
+
+- content do
+  %p
+    Hello #{inline_button(:save, 'a.html', 'Save!', :theme => 'a')}
+  - grid do
+    - column do
+      This is first
+    - column do
+      This is Second
+  - collapse_set do
+    - collapse 'This is collapsible' do
+      Hello world!
+    - collapse 'This is collapsible' do
+      Hello world!
+    - collapse 'This is collapsible' do
+      Hello world!
+  %br
+  - grid do
+    - column do
+      - list :theme => 'a' do
+        = divider "This is divider"
+        - item do
+          Hello World!
+          = counter('3')
+        - nested_item "This is header!", :theme => 'b' do
+          This is nested item
+    - column do
+      - ordered_list :theme => 'b' do
+        - item do
+          Hello World!
+        - link 'a.html', :icon => 'alert' do
+          This is a link
