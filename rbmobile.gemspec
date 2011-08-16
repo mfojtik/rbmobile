@@ -1,3 +1,5 @@
+require 'rake'
+
 Gem::Specification.new do |s|
   s.author = 'Michal Fojtik'
   s.homepage = "http://github.com/mifo/rbmobile"
@@ -13,7 +15,7 @@ Gem::Specification.new do |s|
   s.date = Time.now
   s.summary = %q{jquery.mobile HAML helpers}
   s.files = FileList[
-    'lib/mobile_helpers.rb'
+    'lib/mobile_helpers.rb',
     'README.markdown'
   ].to_a
 

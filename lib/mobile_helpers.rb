@@ -27,10 +27,10 @@ module RBMobile
   # You can disable or enable configuration properties
   # using:
   #
-  # RBMobile::config do
-  #   enable :property
-  #   disable :property
-  # end
+  #   RBMobile::config do
+  #     enable :property
+  #     disable :property
+  #   end
   #
   def self.config(&block)
     RBMobile::class_eval(&block) if block_given?
@@ -50,14 +50,14 @@ module RBMobile
   # This module should be included as a view helper
   # In Sinatra you need to do following:
   #
-  # require 'mobile_helpers'
-  # helpers RBMobile::Helpers
+  #   require 'mobile_helpers'
+  #   helpers RBMobile::Helpers
   #
   # In Rails you should be able to include this module
   # inside your ApplicationHelper as:
   #
-  # require 'mobile_helpers'
-  # include RBMobile::Helpers
+  #   require 'mobile_helpers'
+  #   include RBMobile::Helpers
   #
   module Helpers
 
@@ -65,7 +65,7 @@ module RBMobile
     # You can exclude jQuery itself (in case your project is already including
     # this library somewhere else by:
     #
-    # = mobile_include(:no_jquery => true)
+    #   = mobile_include(:no_jquery => true)
     #
     # This method should be placed right after %head tag.
     #
@@ -90,8 +90,8 @@ module RBMobile
     #
     # This helper will generate:
     #
-    # <div data-role="page">
-    # </div>
+    #   <div data-role="page">
+    #   </div>
     #
     # Additional properties that could be set:
     #
@@ -100,9 +100,9 @@ module RBMobile
     #
     # Example usage:
     #
-    # - page :theme => 'c' do
-    #   - header do
-    #     %h1 Header
+    #   - page :theme => 'c' do
+    #     - header do
+    #       %h1 Header
     #
     def page(opts={}, &block)
       opts.merge!(:'data-title' => opts.delete(:title)) if opts[:title]
@@ -120,8 +120,8 @@ module RBMobile
     #
     # This helper will generate:
     #
-    # <div data-role="header">
-    # </div>
+    #   <div data-role="header">
+    #   </div>
     #
     # Additional properties that could be set:
     #
@@ -136,8 +136,8 @@ module RBMobile
     #
     # This helper will generate:
     #
-    # <div data-role="content">
-    # </div>
+    #   <div data-role="content">
+    #   </div>
     #
     # Additional properties that could be set:
     #
@@ -153,12 +153,12 @@ module RBMobile
     # margins around the page and a dark background to make the "dialog" appear
     # to be suspended above the page.
     #
-    # <a href="foo.html" data-rel="dialog">Open dialog</a>
+    #   <a href="foo.html" data-rel="dialog">Open dialog</a>
     #
     # This helper will generate a block that may contain a dialog:
     #
-    # <div data-role="dialog">
-    # </div>
+    #   <div data-role="dialog">
+    #   </div>
     #
     # Additional properties that could be set:
     #
@@ -180,10 +180,10 @@ module RBMobile
     #
     # This helper will generate:
     #
-    # <div data-role="navbar">
-		#   <ul>
-    #   </ul>
-    # </div>
+    #   <div data-role="navbar">
+		#     <ul>
+    #     </ul>
+    #   </div>
     #
     # Additional properties that could be set:
     #
@@ -199,18 +199,18 @@ module RBMobile
 
     # This helper will generate a link inside 'navbar' block:
     #
-    # - navbar do
-    #   = navigate_to 'a.html', 'One'
-    #   = navigate_to 'b.html', 'Two'
+    #   - navbar do
+    #     = navigate_to 'a.html', 'One'
+    #     = navigate_to 'b.html', 'Two'
     #
     # Will produce:
     #
-    # <div data-role="navbar">
-		#   <ul>
-		# 	  <li><a href="a.html" class="ui-btn-active">One</a></li>
-		# 	  <li><a href="b.html">Two</a></li>
-		#   </ul>
-	  # </div>
+    #   <div data-role="navbar">
+		#     <ul>
+		# 	    <li><a href="a.html" class="ui-btn-active">One</a></li>
+		# 	    <li><a href="b.html">Two</a></li>
+		#     </ul>
+	  #   </div>
     #
     # Additional properties that could be set:
     #
@@ -235,14 +235,14 @@ module RBMobile
 
     # The footer bar has the same basic structure as the header except it uses the data-role attribute value of footer.
     #
-    # - footer do
-    #   %h4 Footer content
+    #   - footer do
+    #     %h4 Footer content
     #
     # Will generate:
     #
-    # <div  data-role="footer">
-	  #   <h4>Footer content</h4>
-    # </div>
+    #   <div  data-role="footer">
+	  #     <h4>Footer content</h4>
+    #   </div>
     #
     # Additional properties that could be set:
     #
@@ -266,16 +266,16 @@ module RBMobile
     #
     # This helper will generate:
     #
-    # - buttongroup :horizontal do
-    #   = button :load, 'load.html', 'Load'
-    #   = button :save, 'save.html', 'Save'
+    #   - buttongroup :horizontal do
+    #     = button :load, 'load.html', 'Load'
+    #     = button :save, 'save.html', 'Save'
     #
     # Will produce:
     #
-    # <div data-role="controlgroup">
-    #   <a href="load.html" data-role="button">Load</a>
-    #   <a href="save.html" data-role="button">Save</a>
-    # </div>
+    #   <div data-role="controlgroup">
+    #     <a href="load.html" data-role="button">Load</a>
+    #     <a href="save.html" data-role="button">Save</a>
+    #   </div>
     #
     # Additional properties that could be set:
     #
@@ -293,8 +293,8 @@ module RBMobile
     #
     # Example usage:
     #
-    # = button :save, 'save.html', 'Save', :theme => 'b'
-    # = button :save, 'save.html', 'Save', :ajax => true
+    #   = button :save, 'save.html', 'Save', :theme => 'b'
+    #   = button :save, 'save.html', 'Save', :ajax => true
     #
     # [kind]  Define icon used for button
     # [url]   Where to move after click
@@ -324,8 +324,8 @@ module RBMobile
     #
     # Example usage:
     #
-    # %p
-    #   Click %{inline_button(:save, '/save', 'Save')} to submit changes
+    #   %p
+    #     Click %{inline_button(:save, '/save', 'Save')} to submit changes
     #
     def inline_button(kind, url, label, opts={})
       opts.merge!(:'data-inline' => 'true')
@@ -346,11 +346,11 @@ module RBMobile
     #
     # Usage:
     #
-    # - grid do
-    #   - column do
-    #     Left content
-    #   - column do
-    #     Right content
+    #   - grid do
+    #     - column do
+    #       Left content
+    #     - column do
+    #       Right content
     #
     # [columns] How many columns will be used (Default: 2)
     #
@@ -376,13 +376,13 @@ module RBMobile
     #
     # Usage:
     #
-    # - collapse "This content is collapsible" do
-    #   %p Some content here!
+    #   - collapse "This content is collapsible" do
+    #     %p Some content here!
     #
-    # <div data-role="collapsible">
-	  #   <h3>I'm a header</h3>
-	  #   <p>I'm the collapsible content. By default I'm open and displayed on the page, but you can click the header to hide me.</p>
-	  # </div>
+    #   <div data-role="collapsible">
+	  #     <h3>I'm a header</h3>
+	  #     <p>I'm the collapsible content. By default I'm open and displayed on the page, but you can click the header to hide me.</p>
+	  #   </div>
     #
     # [collapsed] Determine whenever this block is collapsed or not
     #
@@ -405,11 +405,11 @@ module RBMobile
     #
     # Example:
     #
-    # - collapse_set do
-    #   - collapse 'This is collapsible' do
-    #     Hello world!
-    #   - collapse 'This is collapsible' do
-    #     Hello world!
+    #   - collapse_set do
+    #     - collapse 'This is collapsible' do
+    #       Hello world!
+    #     - collapse 'This is collapsible' do
+    #       Hello world!
     #
     def collapse_set(opts={}, &block)
       @collapsed = true
@@ -428,11 +428,11 @@ module RBMobile
     # transition.
     #
     # Example:
-    # - list :theme => 'a', :filter => true do
-    #    = divider "This is divider"
-    #    - item do
-    #      Hello World!
-    #      = counter('3')
+    #   - list :theme => 'a', :filter => true do
+    #      = divider "This is divider"
+    #     - item do
+    #       Hello World!
+    #       = counter('3')
     #
     # [filter] Determine if search filter will show up or not
     #
@@ -476,9 +476,9 @@ module RBMobile
     #
     # Example:
     #
-    # - list do
-    #   - link 'a.html', :icon => 'alert' do
-    #     This item will send you to a.html
+    #   - list do
+    #     - link 'a.html', :icon => 'alert' do
+    #       This item will send you to a.html
     #
     def link(url, opts={}, &block)
       original_block = block
@@ -496,9 +496,9 @@ module RBMobile
     #
     # Example:
     #
-    # - list do
-    #   - nested_item 'This is item header', :theme => 'b' do
-    #     This is item content
+    #   - list do
+    #     - nested_item 'This is item header', :theme => 'b' do
+    #       This is item content
     #
     def nested_item(title, opts={}, &block)
       original_block = block
@@ -515,10 +515,10 @@ module RBMobile
     #
     # Example:
     #
-    # - list do
-    #   - item do
-    #     Active connections
-    #     = counter '3'
+    #   - list do
+    #     - item do
+    #       Active connections
+    #       = counter '3'
     #
     def counter(value)
       capture_haml do
@@ -532,10 +532,10 @@ module RBMobile
     #
     # Example:
     #
-    # - list do
-    #   - item do
-    #     = thumb '/images/computer.png'
-    #     Computer
+    #   - list do
+    #     - item do
+    #       = thumb '/images/computer.png'
+    #       Computer
     #
     def thumb(image_url)
       capture_haml do
@@ -546,10 +546,10 @@ module RBMobile
     # This will create a list divider. It could be also used to create a contact
     # list alphabetically sorted.
     #
-    # - list do
-    #   = divider "A"
-    #   - item do
-    #     Andreas Muller
+    #   - list do
+    #     = divider "A"
+    #     - item do
+    #       Andreas Muller
     #
     def divider(title, opts={})
       opts[:element] = :li
