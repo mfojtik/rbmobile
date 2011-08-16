@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
     Provides set of HAML helpers to make your template more beautifull.
   EOF
 
-  s.version = '0.0.1'
+  s.version = '0.0.2'
   s.date = Time.now
   s.summary = %q{jquery.mobile HAML helpers}
   s.files = FileList[
