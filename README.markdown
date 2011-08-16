@@ -27,7 +27,7 @@ http://rdoc.info/projects/mfojtik/rbmobile
     
 ### Demo
 
-    $ gem install sinatra
+    $ gem install sinatra sinatra-respond_to
     $ ruby app.rb
     $ open http://localhost:4567/ 
 
