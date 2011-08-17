@@ -3,8 +3,18 @@
   %h1 Test2
 
 - content do
-  %p
-    Hello #{inline_button(:save, 'a.html', 'Save!', :theme => 'a')}
+  %h2 Forms
+  - form '/save' do
+    = input :name, :text, 'Name'
+    = textarea :text
+    = search_input :city, 'City'
+    = toogle :switch, 'Switch'
+    = radio :pet, 'Choose pet', ['cat', :dog, 'hamster', 'honey badger'], :type => :horizontal
+    = radio :pet, 'Choose pet vertical', ['cat', :dog, 'hamster', 'honey badger']
+    = checkbox :pet, 'Choose multiple pets', ['cat', :dog, 'hamster', 'honey badger']
+    = checkbox :pet, 'Choose multiple pets horizontal', ['cat', :dog, 'hamster', 'honey badger'], :type => :horizontal
+    = select :pet, 'Select pet', ['Choose Pet', ['dog', 'Dog'], ['cat', 'Cat'], ['hamster', 'Hamster']]
+    = submit 'Send form'
   %h2 Grid
   - grid do
     - column do

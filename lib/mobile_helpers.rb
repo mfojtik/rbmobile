@@ -560,6 +560,150 @@ module RBMobile
       end
     end
 
+    def form(url, method=:post, opts={}, &block)
+      opts.merge!(
+        :method => method,
+        :url => url
+      )
+      opts.merge!(:'data-ajax' => 'false') if not RBMobile::config[:ajax] and not opts.delete(:ajax)
+      haml_tag :form, opts do
+        block.call if block_given?
+      end
+    end
+
+    def input(name, kind, label=nil, opts={})
+      capture_haml do
+        form_field do
+          haml_tag :label, :for => name do
+            haml_concat label || name.to_s.capitalize
+          end
+          haml_tag :input, { :name => name, :id => name, :type => kind, :value => opts.delete(:value),
+                             :placeholder => opts.delete(:placeholder), :required => opts.delete(:required) ? 'required' : nil,
+                             :pattern => opts.delete(:pattern), :min => opts.delete(:min), :max => opts.delete(:max),
+                             :maxlength => opts.delete(:maxlength) || opts.delete(:size), :checked => opts.delete(:checked) ? 'checked' : nil,
+                             :autocomplete => opts.delete(:no_complete) ? 'off' : nil }.merge(opts)
+
+        end
+      end
+    end
+
+    def search_input(name, label=nil, opts={})
+      input(name, :search, label, {
+        :'data-type' => :search,
+      }.merge(opts))
+    end
+
+    def toogle(name, label=nil, opts={})
+      capture_haml do
+        form_field do
+          haml_tag :label, :for => name do
+            haml_concat label || name.to_s.capitalize
+          end
+          haml_tag :select, :id => name, :'data-role' => 'slider' do
+            haml_tag :option, :value => opts[:first] || 'on' do
+              haml_concat opts[:first] ? opts[:first].to_s.capitalize : 'On'
+            end
+            haml_tag :option, :value => opts[:second] || 'off' do
+              haml_concat opts[:second] ? opts[:second].to_s.capitalize : 'Off'
+            end
+          end
+        end
+      end
+    end
+
+    def select(name, label=nil, options=[], opts={})
+      opts = {
+        :'data-native-menu' => opts.delete(:native) ? 'true' : 'false',
+        :'data-theme' => opts.delete(:theme)
+      }.merge(opts)
+      capture_haml do
+        form_field do
+          haml_tag :label, :for => name do
+            haml_concat label || name.to_s.capitalize
+          end
+          haml_tag :select, { :id => name }.merge(opts) do
+            options.each do |option|
+              option = [option] unless option.kind_of? Array
+              # One-item array will create a placeholder
+              haml_tag :option, :value => option.size==2 ? option.first : nil, :'data-placeholder' => option.size==1 ? 'true' : nil do
+                haml_concat option.last
+              end
+            end
+          end
+        end
+      end
+    end
+
+    def radio(name, label=nil, options=[], opts={})
+      capture_haml do
+        form_field do
+          haml_tag :fieldset, :'data-role' => :controlgroup, :'data-type' => opts[:type] || 'vertical' do
+            haml_tag :legend do
+              haml_concat label || name.to_s.capitalize
+            end
+            options.each_with_index do |option, index|
+              haml_tag :input, :name => name, :id => "#{name}-choice-#{index}", :type => :radio,
+                               :value => option, :checked => option.kind_of?(Symbol) ? 'checked' : nil
+              haml_tag :label, :for => "#{name}-choice-#{index}" do
+                haml_concat option
+              end
+            end
+          end
+        end
+      end
+    end
+
+    def checkbox(name, label=nil, options=[], opts={})
+      capture_haml do
+        form_field do
+          haml_tag :fieldset, :'data-role' => :controlgroup, :'data-type' => opts[:type] || 'vertical' do
+            haml_tag :legend do
+              haml_concat label || name.to_s.capitalize
+            end
+            options.each_with_index do |option, index|
+              haml_tag :input, :name => "name[#{index}]", :id => "#{name}-choice-#{index}", :type => :checkbox,
+                               :value => option, :checked => option.kind_of?(Symbol) ? 'checked' : nil
+              haml_tag :label, :for => "#{name}-choice-#{index}" do
+                haml_concat option
+              end
+            end
+          end
+        end
+      end
+    end
+
+    def textarea(name, label=nil, opts={})
+      capture_haml do
+        form_field do
+          haml_tag :label, :for => name do
+            haml_concat label || name.to_s.capitalize
+          end
+          haml_tag :'textarea', :'<', :name => name, :id => name, :cols => opts[:cols], :rows => opts[:rows],
+            :placeholder => opts[:placeholder], :required => opts[:required] ? 'required' : nil,
+            :maxlength => opts[:maxlength] do
+            haml_concat opts[:content] if opts[:content]
+          end
+        end
+      end
+    end
+
+    def form_field(opts={}, &block)
+      role :'fieldcontain', opts, &block
+    end
+
+    def submit(label=nil, opts={})
+      opts = {
+        :'data-theme' => opts.delete(:theme)
+      }.merge(opts)
+      capture_haml do
+        form_field do
+          haml_tag :button, { :type => :submit }.merge(opts), :value => label do
+            haml_concat label || 'Submit'
+          end
+        end
+      end
+    end
+
     private
 
     def role(name, opts={}, &block)
