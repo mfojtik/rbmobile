@@ -5,20 +5,20 @@
 
 <html>
 <head>
-  <title>list (RBMobile::Helpers)</title>
+  <title>link (RBMobile::Helpers)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/mobile_helpers.rb, line 439</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">list</span>(<span class="ruby-identifier">opts</span>={}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-      <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:element</span>] = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:ordered</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">:ol</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">:ul</span>
-      <span class="ruby-identifier">opts</span>[<span class="ruby-value str">'data-inset'</span><span class="ruby-value str">'data-inset'</span>] = <span class="ruby-value str">'true'</span>
-      <span class="ruby-identifier">opts</span>[<span class="ruby-value str">'data-split-theme'</span><span class="ruby-value str">'data-split-theme'</span>] = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value str">'split-theme'</span><span class="ruby-value str">'split-theme'</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">opts</span>[<span class="ruby-value str">'split-theme'</span><span class="ruby-value str">'split-theme'</span>]
-      <span class="ruby-identifier">opts</span>[<span class="ruby-value str">'data-filter'</span><span class="ruby-value str">'data-filter'</span>] = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value str">'filter'</span><span class="ruby-value str">'filter'</span>) <span class="ruby-operator">?</span> <span class="ruby-value str">'true'</span> <span class="ruby-operator">:</span> <span class="ruby-value str">'false'</span>
-      <span class="ruby-identifier">role</span> <span class="ruby-value str">'listview'</span><span class="ruby-value str">'listview'</span>, <span class="ruby-identifier">opts</span> <span class="ruby-keyword kw">do</span>
-        <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">block_given?</span>
+  <pre><span class="ruby-comment cmt"># File lib/mobile_helpers.rb, line 534</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">link</span>(<span class="ruby-identifier">url</span>, <span class="ruby-identifier">opts</span>={}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+      <span class="ruby-identifier">original_block</span> = <span class="ruby-identifier">block</span>
+      <span class="ruby-identifier">new_block</span> = <span class="ruby-constant">Proc</span><span class="ruby-operator">::</span><span class="ruby-identifier">new</span> <span class="ruby-keyword kw">do</span>
+        <span class="ruby-identifier">haml_tag</span> <span class="ruby-identifier">:a</span>, <span class="ruby-identifier">:href</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">url</span> <span class="ruby-keyword kw">do</span>
+          <span class="ruby-identifier">original_block</span>.<span class="ruby-identifier">call</span>
+        <span class="ruby-keyword kw">end</span>
       <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">item</span>(<span class="ruby-identifier">opts</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">new_block</span>)
     <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

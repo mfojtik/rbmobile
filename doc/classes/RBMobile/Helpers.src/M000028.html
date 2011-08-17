@@ -5,20 +5,16 @@
 
 <html>
 <head>
-  <title>link (RBMobile::Helpers)</title>
+  <title>thumb (RBMobile::Helpers)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/mobile_helpers.rb, line 483</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">link</span>(<span class="ruby-identifier">url</span>, <span class="ruby-identifier">opts</span>={}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-      <span class="ruby-identifier">original_block</span> = <span class="ruby-identifier">block</span>
-      <span class="ruby-identifier">new_block</span> = <span class="ruby-constant">Proc</span><span class="ruby-operator">::</span><span class="ruby-identifier">new</span> <span class="ruby-keyword kw">do</span>
-        <span class="ruby-identifier">haml_tag</span> <span class="ruby-identifier">:a</span>, <span class="ruby-identifier">:href</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">url</span> <span class="ruby-keyword kw">do</span>
-          <span class="ruby-identifier">original_block</span>.<span class="ruby-identifier">call</span>
-        <span class="ruby-keyword kw">end</span>
+  <pre><span class="ruby-comment cmt"># File lib/mobile_helpers.rb, line 595</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">thumb</span>(<span class="ruby-identifier">image_url</span>)
+      <span class="ruby-identifier">capture_haml</span> <span class="ruby-keyword kw">do</span>
+        <span class="ruby-identifier">haml_tag</span> <span class="ruby-identifier">:image</span>, <span class="ruby-identifier">:class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'ui-li-thumb'</span>, <span class="ruby-identifier">:src</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">image_url</span>
       <span class="ruby-keyword kw">end</span>
-      <span class="ruby-identifier">item</span>(<span class="ruby-identifier">opts</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">new_block</span>)
     <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

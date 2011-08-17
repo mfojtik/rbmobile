@@ -5,15 +5,25 @@
 
 <html>
 <head>
-  <title>thumb (RBMobile::Helpers)</title>
+  <title>input (RBMobile::Helpers)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/mobile_helpers.rb, line 540</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">thumb</span>(<span class="ruby-identifier">image_url</span>)
+  <pre><span class="ruby-comment cmt"># File lib/mobile_helpers.rb, line 674</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">input</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">kind</span>, <span class="ruby-identifier">label</span>=<span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">opts</span>={})
       <span class="ruby-identifier">capture_haml</span> <span class="ruby-keyword kw">do</span>
-        <span class="ruby-identifier">haml_tag</span> <span class="ruby-identifier">:image</span>, <span class="ruby-identifier">:class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'ui-li-thumb'</span>, <span class="ruby-identifier">:src</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">image_url</span>
+        <span class="ruby-identifier">form_field</span> <span class="ruby-keyword kw">do</span>
+          <span class="ruby-identifier">haml_tag</span> <span class="ruby-identifier">:label</span>, <span class="ruby-identifier">:for</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">name</span> <span class="ruby-keyword kw">do</span>
+            <span class="ruby-identifier">haml_concat</span> <span class="ruby-identifier">label</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">capitalize</span>
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-identifier">haml_tag</span> <span class="ruby-identifier">:input</span>, { <span class="ruby-identifier">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">name</span>, <span class="ruby-identifier">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">name</span>, <span class="ruby-identifier">:type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">kind</span>, <span class="ruby-identifier">:value</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:value</span>),
+                             <span class="ruby-identifier">:placeholder</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:placeholder</span>), <span class="ruby-identifier">:required</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:required</span>) <span class="ruby-operator">?</span> <span class="ruby-value str">'required'</span> <span class="ruby-operator">:</span> <span class="ruby-keyword kw">nil</span>,
+                             <span class="ruby-identifier">:pattern</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:pattern</span>), <span class="ruby-identifier">:min</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:min</span>), <span class="ruby-identifier">:max</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:max</span>),
+                             <span class="ruby-identifier">:maxlength</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:maxlength</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:size</span>), <span class="ruby-identifier">:checked</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:checked</span>) <span class="ruby-operator">?</span> <span class="ruby-value str">'checked'</span> <span class="ruby-operator">:</span> <span class="ruby-keyword kw">nil</span>,
+                             <span class="ruby-identifier">:autocomplete</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:no_complete</span>) <span class="ruby-operator">?</span> <span class="ruby-value str">'off'</span> <span class="ruby-operator">:</span> <span class="ruby-keyword kw">nil</span> }.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">opts</span>)
+
+        <span class="ruby-keyword kw">end</span>
       <span class="ruby-keyword kw">end</span>
     <span class="ruby-keyword kw">end</span></pre>
 </body>

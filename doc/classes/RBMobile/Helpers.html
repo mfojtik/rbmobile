@@ -99,29 +99,40 @@ ApplicationHelper as:
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000019">button</a>&nbsp;&nbsp;
-      <a href="#M000018">buttongroup</a>&nbsp;&nbsp;
-      <a href="#M000023">collapse</a>&nbsp;&nbsp;
-      <a href="#M000024">collapse_set</a>&nbsp;&nbsp;
-      <a href="#M000022">column</a>&nbsp;&nbsp;
-      <a href="#M000013">content</a>&nbsp;&nbsp;
-      <a href="#M000030">counter</a>&nbsp;&nbsp;
-      <a href="#M000014">dialog</a>&nbsp;&nbsp;
-      <a href="#M000032">divider</a>&nbsp;&nbsp;
-      <a href="#M000017">footer</a>&nbsp;&nbsp;
-      <a href="#M000021">grid</a>&nbsp;&nbsp;
-      <a href="#M000012">header</a>&nbsp;&nbsp;
-      <a href="#M000020">inline_button</a>&nbsp;&nbsp;
-      <a href="#M000027">item</a>&nbsp;&nbsp;
-      <a href="#M000028">link</a>&nbsp;&nbsp;
-      <a href="#M000025">list</a>&nbsp;&nbsp;
-      <a href="#M000010">mobile_include</a>&nbsp;&nbsp;
-      <a href="#M000015">navbar</a>&nbsp;&nbsp;
-      <a href="#M000016">navigate_to</a>&nbsp;&nbsp;
-      <a href="#M000029">nested_item</a>&nbsp;&nbsp;
-      <a href="#M000026">ordered_list</a>&nbsp;&nbsp;
-      <a href="#M000011">page</a>&nbsp;&nbsp;
-      <a href="#M000031">thumb</a>&nbsp;&nbsp;
+      <a href="#M000016">button</a>&nbsp;&nbsp;
+      <a href="#M000015">buttongroup</a>&nbsp;&nbsp;
+      <a href="#M000037">checkbox</a>&nbsp;&nbsp;
+      <a href="#M000020">collapse</a>&nbsp;&nbsp;
+      <a href="#M000021">collapse_set</a>&nbsp;&nbsp;
+      <a href="#M000019">column</a>&nbsp;&nbsp;
+      <a href="#M000010">content</a>&nbsp;&nbsp;
+      <a href="#M000027">counter</a>&nbsp;&nbsp;
+      <a href="#M000011">dialog</a>&nbsp;&nbsp;
+      <a href="#M000029">divider</a>&nbsp;&nbsp;
+      <a href="#M000014">footer</a>&nbsp;&nbsp;
+      <a href="#M000030">form</a>&nbsp;&nbsp;
+      <a href="#M000039">form_field</a>&nbsp;&nbsp;
+      <a href="#M000018">grid</a>&nbsp;&nbsp;
+      <a href="#M000009">header</a>&nbsp;&nbsp;
+      <a href="#M000017">inline_button</a>&nbsp;&nbsp;
+      <a href="#M000031">input</a>&nbsp;&nbsp;
+      <a href="#M000024">item</a>&nbsp;&nbsp;
+      <a href="#M000025">link</a>&nbsp;&nbsp;
+      <a href="#M000022">list</a>&nbsp;&nbsp;
+      <a href="#M000007">mobile_include</a>&nbsp;&nbsp;
+      <a href="#M000012">navbar</a>&nbsp;&nbsp;
+      <a href="#M000013">navigate_to</a>&nbsp;&nbsp;
+      <a href="#M000026">nested_item</a>&nbsp;&nbsp;
+      <a href="#M000023">ordered_list</a>&nbsp;&nbsp;
+      <a href="#M000008">page</a>&nbsp;&nbsp;
+      <a href="#M000036">radio</a>&nbsp;&nbsp;
+      <a href="#M000032">search_input</a>&nbsp;&nbsp;
+      <a href="#M000035">select</a>&nbsp;&nbsp;
+      <a href="#M000033">slider</a>&nbsp;&nbsp;
+      <a href="#M000040">submit</a>&nbsp;&nbsp;
+      <a href="#M000038">textarea</a>&nbsp;&nbsp;
+      <a href="#M000028">thumb</a>&nbsp;&nbsp;
+      <a href="#M000034">toogle</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -143,12 +154,12 @@ ApplicationHelper as:
     <div id="methods">
       <h3 class="section-bar">Public Instance methods</h3>
 
-      <div id="method-M000019" class="method-detail">
-        <a name="M000019"></a>
+      <div id="method-M000016" class="method-detail">
+        <a name="M000016"></a>
 
         <div class="method-heading">
-          <a href="Helpers.src/M000019.html" target="Code" class="method-signature"
-            onclick="popupCode('Helpers.src/M000019.html');return false;">
+          <a href="Helpers.src/M000016.html" target="Code" class="method-signature"
+            onclick="popupCode('Helpers.src/M000016.html');return false;">
           <span class="method-name">button</span><span class="method-args">(kind, url, label, opts={})</span>
           </a>
         </div>
@@ -156,8 +167,9 @@ ApplicationHelper as:
         <div class="method-description">
           <p>
 Buttons that are used for navigation should be coded as anchor links, and
-those that submit forms as <a href="Helpers.html#M000019">button</a>
-elements — each will be styled identically by the framework.
+those that <a href="Helpers.html#M000040">submit</a> forms as <a
+href="Helpers.html#M000016">button</a> elements — each will be styled
+identically by the framework.
 </p>
 <p>
 Example usage:
@@ -167,31 +179,31 @@ Example usage:
   = button :save, 'save.html', 'Save', :ajax =&gt; true
 </pre>
 <dl>
-<dt>kind</dt><dd>Define icon used for <a href="Helpers.html#M000019">button</a>
+<dt>kind</dt><dd>Define icon used for <a href="Helpers.html#M000016">button</a>
 
 </dd>
 <dt>url</dt><dd>Where to move after click
 
 </dd>
-<dt>label</dt><dd>Text displayed in <a href="Helpers.html#M000019">button</a>
+<dt>label</dt><dd>Text displayed in <a href="Helpers.html#M000016">button</a>
 
 </dd>
-<dt>theme</dt><dd>Change mobile theme (&#8216;a&#8217;..&#8217;f&#8217;)
+<dt>:theme</dt><dd>Change mobile theme (&#8216;a&#8217;..&#8217;f&#8217;)
 
 </dd>
-<dt>ajax</dt><dd>Overide default AJAX setting
+<dt>:ajax</dt><dd>Overide default AJAX setting
 
 </dd>
 </dl>
         </div>
       </div>
 
-      <div id="method-M000018" class="method-detail">
-        <a name="M000018"></a>
+      <div id="method-M000015" class="method-detail">
+        <a name="M000015"></a>
 
         <div class="method-heading">
-          <a href="Helpers.src/M000018.html" target="Code" class="method-signature"
-            onclick="popupCode('Helpers.src/M000018.html');return false;">
+          <a href="Helpers.src/M000015.html" target="Code" class="method-signature"
+            onclick="popupCode('Helpers.src/M000015.html');return false;">
           <span class="method-name">buttongroup</span><span class="method-args">(kind=:horizontal, &amp;block)</span>
           </a>
         </div>
@@ -199,13 +211,13 @@ Example usage:
         <div class="method-description">
           <p>
 Occasionally, you may want to visually group a set of buttons together to
-form a single block that looks contained like a navigation component. To
-get this effect, wrap a set of buttons in a container with the
-data-role=&quot;controlgroup&quot; attribute — the framework will create
-a vertical <a href="Helpers.html#M000019">button</a> group, remove all
-margins and drop shadows between the buttons, and only round the first and
-last buttons of the set to create the effect that they are grouped
-together.
+<a href="Helpers.html#M000030">form</a> a single block that looks contained
+like a navigation component. To get this effect, wrap a set of buttons in a
+container with the data-role=&quot;controlgroup&quot; attribute — the
+framework will create a vertical <a href="Helpers.html#M000016">button</a>
+group, remove all margins and drop shadows between the buttons, and only
+round the first and last buttons of the set to create the effect that they
+are grouped together.
 </p>
 <p>
 This helper will generate:
@@ -235,12 +247,53 @@ Additional properties that could be set:
         </div>
       </div>
 
-      <div id="method-M000023" class="method-detail">
-        <a name="M000023"></a>
+      <div id="method-M000037" class="method-detail">
+        <a name="M000037"></a>
 
         <div class="method-heading">
-          <a href="Helpers.src/M000023.html" target="Code" class="method-signature"
-            onclick="popupCode('Helpers.src/M000023.html');return false;">
+          <a href="Helpers.src/M000037.html" target="Code" class="method-signature"
+            onclick="popupCode('Helpers.src/M000037.html');return false;">
+          <span class="method-name">checkbox</span><span class="method-args">(name, label=nil, options=[], opts={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Both the <a href="Helpers.html#M000036">radio</a> and <a
+href="Helpers.html#M000037">checkbox</a> controls below use standard
+input/label markup, but are styled to be more touch-friendly. The styled
+control you see is actually the label element, which sits over the real <a
+href="Helpers.html#M000031">input</a>, so if images fail to load,
+you&#8216;ll still have a functional control. In most browsers, clicking
+the label automatically triggers a click on the <a
+href="Helpers.html#M000031">input</a>, but we&#8216;ve had to trigger the
+update manually for a few mobile browsers that don&#8216;t do this
+natively. On the desktop, these controls are keyboard and screen-reader
+accessible.
+</p>
+<p>
+Examples:
+</p>
+<pre>
+  - form do
+    = checkbox :pet, 'Choose multiple pets', ['cat', :dog, 'hamster', 'honey badger']
+    = checkbox :pet, 'Choose multiple pets horizontal', ['cat', :dog, 'hamster', 'honey badger'], :type =&gt; :horizontal
+</pre>
+<p>
+Options:
+</p>
+<p>
+See &#8216;<a href="Helpers.html#M000036">radio</a>&#8217; method.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000020" class="method-detail">
+        <a name="M000020"></a>
+
+        <div class="method-heading">
+          <a href="Helpers.src/M000020.html" target="Code" class="method-signature"
+            onclick="popupCode('Helpers.src/M000020.html');return false;">
           <span class="method-name">collapse</span><span class="method-args">(title, opts={}, &amp;block)</span>
           </a>
         </div>
@@ -248,7 +301,7 @@ Additional properties that could be set:
         <div class="method-description">
           <p>
 To create a collapsible blocks of <a
-href="Helpers.html#M000013">content</a>, create a container and add the
+href="Helpers.html#M000010">content</a>, create a container and add the
 data-role=&quot;collapsible&quot; attribute.
 </p>
 <p>
@@ -264,19 +317,22 @@ Usage:
   &lt;/div&gt;
 </pre>
 <dl>
-<dt>collapsed</dt><dd>Determine whenever this block is collapsed or not
+<dt>title</dt><dd>Give title to collapsable block
+
+</dd>
+<dt>:collapsed</dt><dd>Determine whenever this block is collapsed or not
 
 </dd>
 </dl>
         </div>
       </div>
 
-      <div id="method-M000024" class="method-detail">
-        <a name="M000024"></a>
+      <div id="method-M000021" class="method-detail">
+        <a name="M000021"></a>
 
         <div class="method-heading">
-          <a href="Helpers.src/M000024.html" target="Code" class="method-signature"
-            onclick="popupCode('Helpers.src/M000024.html');return false;">
+          <a href="Helpers.src/M000021.html" target="Code" class="method-signature"
+            onclick="popupCode('Helpers.src/M000021.html');return false;">
           <span class="method-name">collapse_set</span><span class="method-args">(opts={}, &amp;block)</span>
           </a>
         </div>
@@ -300,44 +356,52 @@ Example:
     - collapse 'This is collapsible' do
       Hello world!
 </pre>
+<p>
+Attributes:
+</p>
+<dl>
+<dt>:theme</dt><dd>Change default theme
+
+</dd>
+</dl>
         </div>
       </div>
 
-      <div id="method-M000022" class="method-detail">
-        <a name="M000022"></a>
+      <div id="method-M000019" class="method-detail">
+        <a name="M000019"></a>
 
         <div class="method-heading">
-          <a href="Helpers.src/M000022.html" target="Code" class="method-signature"
-            onclick="popupCode('Helpers.src/M000022.html');return false;">
+          <a href="Helpers.src/M000019.html" target="Code" class="method-signature"
+            onclick="popupCode('Helpers.src/M000019.html');return false;">
           <span class="method-name">column</span><span class="method-args">(&amp;block)</span>
           </a>
         </div>
       
         <div class="method-description">
           <p>
-A single <a href="Helpers.html#M000021">grid</a> <a
-href="Helpers.html#M000022">column</a>
+A single <a href="Helpers.html#M000018">grid</a> <a
+href="Helpers.html#M000019">column</a>
 </p>
 <p>
-Usage: see &#8216;<a href="Helpers.html#M000021">grid</a>&#8216;
+Usage: see &#8216;<a href="Helpers.html#M000018">grid</a>&#8216;
 </p>
         </div>
       </div>
 
-      <div id="method-M000013" class="method-detail">
-        <a name="M000013"></a>
+      <div id="method-M000010" class="method-detail">
+        <a name="M000010"></a>
 
         <div class="method-heading">
-          <a href="Helpers.src/M000013.html" target="Code" class="method-signature"
-            onclick="popupCode('Helpers.src/M000013.html');return false;">
+          <a href="Helpers.src/M000010.html" target="Code" class="method-signature"
+            onclick="popupCode('Helpers.src/M000010.html');return false;">
           <span class="method-name">content</span><span class="method-args">(opts={}, &amp;block)</span>
           </a>
         </div>
       
         <div class="method-description">
           <p>
-The <a href="Helpers.html#M000013">content</a> block is the main container
-for your <a href="Helpers.html#M000013">content</a>.
+The <a href="Helpers.html#M000010">content</a> block is the main container
+for your <a href="Helpers.html#M000010">content</a>.
 </p>
 <p>
 This helper will generate:
@@ -350,28 +414,28 @@ This helper will generate:
 Additional properties that could be set:
 </p>
 <dl>
-<dt>theme</dt><dd>Change mobile theme (&#8216;a&#8217;..&#8217;f&#8217;)
+<dt>:theme</dt><dd>Change mobile theme (&#8216;a&#8217;..&#8217;f&#8217;)
 
 </dd>
 </dl>
         </div>
       </div>
 
-      <div id="method-M000030" class="method-detail">
-        <a name="M000030"></a>
+      <div id="method-M000027" class="method-detail">
+        <a name="M000027"></a>
 
         <div class="method-heading">
-          <a href="Helpers.src/M000030.html" target="Code" class="method-signature"
-            onclick="popupCode('Helpers.src/M000030.html');return false;">
+          <a href="Helpers.src/M000027.html" target="Code" class="method-signature"
+            onclick="popupCode('Helpers.src/M000027.html');return false;">
           <span class="method-name">counter</span><span class="method-args">(value)</span>
           </a>
         </div>
       
         <div class="method-description">
           <p>
-This will add a small <a href="Helpers.html#M000030">counter</a> on the
-right side of <a href="Helpers.html#M000025">list</a> <a
-href="Helpers.html#M000027">item</a>.
+This will add a small <a href="Helpers.html#M000027">counter</a> on the
+right side of <a href="Helpers.html#M000022">list</a> <a
+href="Helpers.html#M000024">item</a>.
 </p>
 <p>
 Example:
@@ -385,35 +449,35 @@ Example:
         </div>
       </div>
 
-      <div id="method-M000014" class="method-detail">
-        <a name="M000014"></a>
+      <div id="method-M000011" class="method-detail">
+        <a name="M000011"></a>
 
         <div class="method-heading">
-          <a href="Helpers.src/M000014.html" target="Code" class="method-signature"
-            onclick="popupCode('Helpers.src/M000014.html');return false;">
+          <a href="Helpers.src/M000011.html" target="Code" class="method-signature"
+            onclick="popupCode('Helpers.src/M000011.html');return false;">
           <span class="method-name">dialog</span><span class="method-args">(opts={}, &amp;block)</span>
           </a>
         </div>
       
         <div class="method-description">
           <p>
-Any <a href="Helpers.html#M000011">page</a> can be presented as a modal <a
-href="Helpers.html#M000014">dialog</a> by adding the data-rel=&quot;<a
-href="Helpers.html#M000014">dialog</a>&quot; attribute to the <a
-href="Helpers.html#M000011">page</a> anchor <a
-href="Helpers.html#M000028">link</a>. When the &quot;<a
-href="Helpers.html#M000014">dialog</a>&quot; attribute is applied, the
+Any <a href="Helpers.html#M000008">page</a> can be presented as a modal <a
+href="Helpers.html#M000011">dialog</a> by adding the data-rel=&quot;<a
+href="Helpers.html#M000011">dialog</a>&quot; attribute to the <a
+href="Helpers.html#M000008">page</a> anchor <a
+href="Helpers.html#M000025">link</a>. When the &quot;<a
+href="Helpers.html#M000011">dialog</a>&quot; attribute is applied, the
 framework adds styles to add rounded corners, margins around the <a
-href="Helpers.html#M000011">page</a> and a dark background to make the
-&quot;<a href="Helpers.html#M000014">dialog</a>&quot; appear to be
-suspended above the <a href="Helpers.html#M000011">page</a>.
+href="Helpers.html#M000008">page</a> and a dark background to make the
+&quot;<a href="Helpers.html#M000011">dialog</a>&quot; appear to be
+suspended above the <a href="Helpers.html#M000008">page</a>.
 </p>
 <pre>
   &lt;a href=&quot;foo.html&quot; data-rel=&quot;dialog&quot;&gt;Open dialog&lt;/a&gt;
 </pre>
 <p>
 This helper will generate a block that may contain a <a
-href="Helpers.html#M000014">dialog</a>:
+href="Helpers.html#M000011">dialog</a>:
 </p>
 <pre>
   &lt;div data-role=&quot;dialog&quot;&gt;
@@ -423,28 +487,28 @@ href="Helpers.html#M000014">dialog</a>:
 Additional properties that could be set:
 </p>
 <dl>
-<dt>theme</dt><dd>Change mobile theme (&#8216;a&#8217;..&#8217;f&#8217;)
+<dt>:theme</dt><dd>Change mobile theme (&#8216;a&#8217;..&#8217;f&#8217;)
 
 </dd>
 </dl>
         </div>
       </div>
 
-      <div id="method-M000032" class="method-detail">
-        <a name="M000032"></a>
+      <div id="method-M000029" class="method-detail">
+        <a name="M000029"></a>
 
         <div class="method-heading">
-          <a href="Helpers.src/M000032.html" target="Code" class="method-signature"
-            onclick="popupCode('Helpers.src/M000032.html');return false;">
+          <a href="Helpers.src/M000029.html" target="Code" class="method-signature"
+            onclick="popupCode('Helpers.src/M000029.html');return false;">
           <span class="method-name">divider</span><span class="method-args">(title, opts={})</span>
           </a>
         </div>
       
         <div class="method-description">
           <p>
-This will create a <a href="Helpers.html#M000025">list</a> <a
-href="Helpers.html#M000032">divider</a>. It could be also used to create a
-contact <a href="Helpers.html#M000025">list</a> alphabetically sorted.
+This will create a <a href="Helpers.html#M000022">list</a> <a
+href="Helpers.html#M000029">divider</a>. It could be also used to create a
+contact <a href="Helpers.html#M000022">list</a> alphabetically sorted.
 </p>
 <pre>
   - list do
@@ -452,24 +516,33 @@ contact <a href="Helpers.html#M000025">list</a> alphabetically sorted.
     - item do
       Andreas Muller
 </pre>
+<p>
+Options:
+</p>
+<dl>
+<dt>:theme</dt><dd>Change default theme for <a href="Helpers.html#M000029">divider</a> (broken
+in jquery.mobile 1.0b2)
+
+</dd>
+</dl>
         </div>
       </div>
 
-      <div id="method-M000017" class="method-detail">
-        <a name="M000017"></a>
+      <div id="method-M000014" class="method-detail">
+        <a name="M000014"></a>
 
         <div class="method-heading">
-          <a href="Helpers.src/M000017.html" target="Code" class="method-signature"
-            onclick="popupCode('Helpers.src/M000017.html');return false;">
+          <a href="Helpers.src/M000014.html" target="Code" class="method-signature"
+            onclick="popupCode('Helpers.src/M000014.html');return false;">
           <span class="method-name">footer</span><span class="method-args">(opts={}, &amp;block)</span>
           </a>
         </div>
       
         <div class="method-description">
           <p>
-The <a href="Helpers.html#M000017">footer</a> bar has the same basic
-structure as the <a href="Helpers.html#M000012">header</a> except it uses
-the data-role attribute value of <a href="Helpers.html#M000017">footer</a>.
+The <a href="Helpers.html#M000014">footer</a> bar has the same basic
+structure as the <a href="Helpers.html#M000009">header</a> except it uses
+the data-role attribute value of <a href="Helpers.html#M000014">footer</a>.
 </p>
 <pre>
   - footer do
@@ -487,42 +560,110 @@ Will generate:
 Additional properties that could be set:
 </p>
 <dl>
-<dt>theme</dt><dd>Change mobile theme (&#8216;a&#8217;..&#8217;f&#8217;)
+<dt>:theme</dt><dd>Change mobile theme (&#8216;a&#8217;..&#8217;f&#8217;)
 
 </dd>
-<dt>uibar</dt><dd>Include padding on the bar
+<dt>:uibar</dt><dd>Include padding on the bar
 
 </dd>
-<dt>fixed</dt><dd>Fixed toolbars will re-appear after you scroll
+<dt>:fixed</dt><dd>Fixed toolbars will re-appear after you scroll
 
 </dd>
 </dl>
         </div>
       </div>
 
-      <div id="method-M000021" class="method-detail">
-        <a name="M000021"></a>
+      <div id="method-M000030" class="method-detail">
+        <a name="M000030"></a>
 
         <div class="method-heading">
-          <a href="Helpers.src/M000021.html" target="Code" class="method-signature"
-            onclick="popupCode('Helpers.src/M000021.html');return false;">
+          <a href="Helpers.src/M000030.html" target="Code" class="method-signature"
+            onclick="popupCode('Helpers.src/M000030.html');return false;">
+          <span class="method-name">form</span><span class="method-args">(url, method=:post, opts={}, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Wrapper for all HTML forms
+</p>
+<p>
+Example:
+</p>
+<pre>
+  - form '/save', :post do
+    = input :name, :text, 'Name'
+    = textarea :text
+    = search_input :city, 'City'
+    = toogle :switch, 'Switch'
+</pre>
+<p>
+Options:
+</p>
+<dl>
+<dt>url</dt><dd>URL that handle the <a href="Helpers.html#M000030">form</a> data processing
+on the server
+
+</dd>
+<dt>method</dt><dd>HTTP method to use (Default: POST)
+
+</dd>
+<dt>:ajax</dt><dd>Overide default AJAX setting for this <a
+href="Helpers.html#M000030">form</a>
+
+</dd>
+</dl>
+        </div>
+      </div>
+
+      <div id="method-M000039" class="method-detail">
+        <a name="M000039"></a>
+
+        <div class="method-heading">
+          <a href="Helpers.src/M000039.html" target="Code" class="method-signature"
+            onclick="popupCode('Helpers.src/M000039.html');return false;">
+          <span class="method-name">form_field</span><span class="method-args">(opts={}, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Basic wrapper for all <a href="Helpers.html#M000030">form</a> fields
+</p>
+<p>
+Options:
+</p>
+<dl>
+<dt>:theme</dt><dd>Change default theme
+
+</dd>
+</dl>
+        </div>
+      </div>
+
+      <div id="method-M000018" class="method-detail">
+        <a name="M000018"></a>
+
+        <div class="method-heading">
+          <a href="Helpers.src/M000018.html" target="Code" class="method-signature"
+            onclick="popupCode('Helpers.src/M000018.html');return false;">
           <span class="method-name">grid</span><span class="method-args">(columns=2, &amp;block)</span>
           </a>
         </div>
       
         <div class="method-description">
           <p>
-Using multiple <a href="Helpers.html#M000022">column</a> layouts
+Using multiple <a href="Helpers.html#M000019">column</a> layouts
 isn&#8216;t generally recommended on a mobile device because of the narrow
 screen width, but there are times where you may need to place small
 elements side-by-side (like buttons or navigation tabs, for example). The
 jQuery Mobile framework provides a simple way to build CSS-based columns
 through a block style class convention called ui-<a
-href="Helpers.html#M000021">grid</a>. There are two preset configurations
-layouts — two-<a href="Helpers.html#M000022">column</a> (using the class
-of ui-<a href="Helpers.html#M000021">grid</a>-a), and three-<a
-href="Helpers.html#M000022">column</a> (using the class of ui-<a
-href="Helpers.html#M000021">grid</a>-b) — that can be used in any
+href="Helpers.html#M000018">grid</a>. There are two preset configurations
+layouts — two-<a href="Helpers.html#M000019">column</a> (using the class
+of ui-<a href="Helpers.html#M000018">grid</a>-a), and three-<a
+href="Helpers.html#M000019">column</a> (using the class of ui-<a
+href="Helpers.html#M000018">grid</a>-b) — that can be used in any
 situation that requires columns. Grids are 100% width, completely invisible
 (no borders or backgrounds) and don&#8216;t have padding or margins, so
 they shouldn&#8216;t interfere with the styles of elements placed inside
@@ -546,27 +687,27 @@ Usage:
         </div>
       </div>
 
-      <div id="method-M000012" class="method-detail">
-        <a name="M000012"></a>
+      <div id="method-M000009" class="method-detail">
+        <a name="M000009"></a>
 
         <div class="method-heading">
-          <a href="Helpers.src/M000012.html" target="Code" class="method-signature"
-            onclick="popupCode('Helpers.src/M000012.html');return false;">
+          <a href="Helpers.src/M000009.html" target="Code" class="method-signature"
+            onclick="popupCode('Helpers.src/M000009.html');return false;">
           <span class="method-name">header</span><span class="method-args">(opts={}, &amp;block)</span>
           </a>
         </div>
       
         <div class="method-description">
           <p>
-The <a href="Helpers.html#M000012">header</a> is a toolbar at the top of
-the <a href="Helpers.html#M000011">page</a> that usually contains the <a
-href="Helpers.html#M000011">page</a> title text and optional buttons
+The <a href="Helpers.html#M000009">header</a> is a toolbar at the top of
+the <a href="Helpers.html#M000008">page</a> that usually contains the <a
+href="Helpers.html#M000008">page</a> title text and optional buttons
 positioned to the the left and/or right of the title for navigation or
 actions. The title text is normally an H1 heading element but it&#8216;s
 possible to use any heading level (H1-H6) to allow for semantic
-flexibility. For example, a <a href="Helpers.html#M000011">page</a>
+flexibility. For example, a <a href="Helpers.html#M000008">page</a>
 containing multiple mobile &#8216;pages&#8217; may use a H1 element on the
-home &#8216;<a href="Helpers.html#M000011">page</a>&#8217; and a H2 element
+home &#8216;<a href="Helpers.html#M000008">page</a>&#8217; and a H2 element
 on the secondary pages. All heading levels are styled identically by
 default to maintain visual consistency.
 </p>
@@ -581,19 +722,19 @@ This helper will generate:
 Additional properties that could be set:
 </p>
 <dl>
-<dt>theme</dt><dd>Change mobile theme (&#8216;a&#8217;..&#8217;f&#8217;)
+<dt>:theme</dt><dd>Change mobile theme (&#8216;a&#8217;..&#8217;f&#8217;)
 
 </dd>
 </dl>
         </div>
       </div>
 
-      <div id="method-M000020" class="method-detail">
-        <a name="M000020"></a>
+      <div id="method-M000017" class="method-detail">
+        <a name="M000017"></a>
 
         <div class="method-heading">
-          <a href="Helpers.src/M000020.html" target="Code" class="method-signature"
-            onclick="popupCode('Helpers.src/M000020.html');return false;">
+          <a href="Helpers.src/M000017.html" target="Code" class="method-signature"
+            onclick="popupCode('Helpers.src/M000017.html');return false;">
           <span class="method-name">inline_button</span><span class="method-args">(kind, url, label, opts={})</span>
           </a>
         </div>
@@ -601,11 +742,11 @@ Additional properties that could be set:
         <div class="method-description">
           <p>
 By default, all buttons in the body <a
-href="Helpers.html#M000013">content</a> are styled as block-level element
+href="Helpers.html#M000010">content</a> are styled as block-level element
 so they fill the width of the screen However, if you want a more compact <a
-href="Helpers.html#M000019">button</a> that is only as wide as the text and
+href="Helpers.html#M000016">button</a> that is only as wide as the text and
 icons inside, add the data-inline=&quot;true&quot; attribute to the <a
-href="Helpers.html#M000019">button</a>
+href="Helpers.html#M000016">button</a>
 </p>
 <p>
 Example usage:
@@ -617,68 +758,112 @@ Example usage:
         </div>
       </div>
 
-      <div id="method-M000027" class="method-detail">
-        <a name="M000027"></a>
+      <div id="method-M000031" class="method-detail">
+        <a name="M000031"></a>
 
         <div class="method-heading">
-          <a href="Helpers.src/M000027.html" target="Code" class="method-signature"
-            onclick="popupCode('Helpers.src/M000027.html');return false;">
-          <span class="method-name">item</span><span class="method-args">(opts={}, &amp;block)</span>
+          <a href="Helpers.src/M000031.html" target="Code" class="method-signature"
+            onclick="popupCode('Helpers.src/M000031.html');return false;">
+          <span class="method-name">input</span><span class="method-args">(name, kind, label=nil, opts={})</span>
           </a>
         </div>
       
         <div class="method-description">
           <p>
-A single <a href="Helpers.html#M000025">list</a> <a
-href="Helpers.html#M000027">item</a> (li).
+Text inputs and textareas are coded with standard HTML elements, then
+enhanced by jQuery Mobile to make them more attractive and useable on a
+mobile.
 </p>
 <p>
-Example: See &#8216;<a href="Helpers.html#M000025">list</a>&#8216;
+Example:
 </p>
+<pre>
+  - form '/save' do
+    = input :name, :text, 'Name'
+    = input :surname, :text, 'Name', :required =&gt; true
+</pre>
 <p>
 Options:
 </p>
 <dl>
-<dt>icon</dt><dd>Define the right icon in <a href="Helpers.html#M000025">list</a>
+<dt>name</dt><dd>Element name
 
 </dd>
-<dt>theme</dt><dd>Change default theme for single <a href="Helpers.html#M000025">list</a> <a
-href="Helpers.html#M000027">item</a>
+<dt>kind</dt><dd>Element type (:text, :<a href="Helpers.html#M000036">radio</a>, :<a
+href="Helpers.html#M000037">checkbox</a>, &#8230;)
 
 </dd>
-<dt>item_icon_url</dt><dd>Allow to display custom (64x64) icon on the left side
+<dt>label</dt><dd>Element label (if nil, it will use &#8216;name&#8217; as label)
+
+</dd>
+<dt>:value</dt><dd>Default value for this <a href="Helpers.html#M000031">input</a> box
+
+</dd>
+<dt>:placeholder</dt><dd>As soon as you click on (or tab to) the <a
+href="Helpers.html#M000031">input</a> field, the placeholder text
+disappears (HTML5)
+
+</dd>
+<dt>:required</dt><dd>Mark this <a href="Helpers.html#M000031">input</a> as required (HTML5)
+
+</dd>
+<dt>:patter</dt><dd>Validate value using regular expression (HTML5)
+
+</dd>
+<dt>:min</dt><dd>Minimal value
+
+</dd>
+<dt>:max</dt><dd>Maximum value
+
+</dd>
+<dt>:maxlength</dt><dd>Maximum string length
+
+</dd>
+<dt>:checked</dt><dd>Mark this <a href="Helpers.html#M000031">input</a> as &#8216;checked&#8217;
+(used in :<a href="Helpers.html#M000037">checkbox</a> os :<a
+href="Helpers.html#M000036">radio</a> &#8216;kind&#8217;)
+
+</dd>
+<dt>:no_complete</dt><dd>Disable autocompletetion
 
 </dd>
 </dl>
         </div>
       </div>
 
-      <div id="method-M000028" class="method-detail">
-        <a name="M000028"></a>
+      <div id="method-M000024" class="method-detail">
+        <a name="M000024"></a>
 
         <div class="method-heading">
-          <a href="Helpers.src/M000028.html" target="Code" class="method-signature"
-            onclick="popupCode('Helpers.src/M000028.html');return false;">
-          <span class="method-name">link</span><span class="method-args">(url, opts={}, &amp;block)</span>
+          <a href="Helpers.src/M000024.html" target="Code" class="method-signature"
+            onclick="popupCode('Helpers.src/M000024.html');return false;">
+          <span class="method-name">item</span><span class="method-args">(opts={}, &amp;block)</span>
           </a>
         </div>
       
         <div class="method-description">
           <p>
-Same as <a href="Helpers.html#M000025">list</a> <a
-href="Helpers.html#M000027">item</a> (&#8216;<a
-href="Helpers.html#M000027">item</a>&#8217;) but this will create a
-&#8216;<a href="Helpers.html#M000028">link</a>&#8217; <a
-href="Helpers.html#M000027">item</a>.
+A single <a href="Helpers.html#M000022">list</a> <a
+href="Helpers.html#M000024">item</a> (li).
 </p>
 <p>
-Example:
+Example: See &#8216;<a href="Helpers.html#M000022">list</a>&#8216;
 </p>
-<pre>
-  - list do
-    - link 'a.html', :icon =&gt; 'alert' do
-      This item will send you to a.html
-</pre>
+<p>
+Options:
+</p>
+<dl>
+<dt>:icon</dt><dd>Define the right icon in <a href="Helpers.html#M000022">list</a>
+
+</dd>
+<dt>:theme</dt><dd>Change default theme for single <a href="Helpers.html#M000022">list</a> <a
+href="Helpers.html#M000024">item</a>
+
+</dd>
+<dt>:item_icon_url</dt><dd>Allow to display custom (64x64) icon on the left side
+
+</dd>
+</dl>
         </div>
       </div>
 
@@ -688,27 +873,62 @@ Example:
         <div class="method-heading">
           <a href="Helpers.src/M000025.html" target="Code" class="method-signature"
             onclick="popupCode('Helpers.src/M000025.html');return false;">
+          <span class="method-name">link</span><span class="method-args">(url, opts={}, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Same as <a href="Helpers.html#M000022">list</a> <a
+href="Helpers.html#M000024">item</a> (&#8216;<a
+href="Helpers.html#M000024">item</a>&#8217;) but this will create a
+&#8216;<a href="Helpers.html#M000025">link</a>&#8217; <a
+href="Helpers.html#M000024">item</a>.
+</p>
+<p>
+Example:
+</p>
+<pre>
+  - list do
+    - link 'a.html', :icon =&gt; 'alert' do
+      This item will send you to a.html
+</pre>
+<p>
+Options:
+</p>
+<p>
+See &#8216;<a href="Helpers.html#M000024">item</a>&#8217; method
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000022" class="method-detail">
+        <a name="M000022"></a>
+
+        <div class="method-heading">
+          <a href="Helpers.src/M000022.html" target="Code" class="method-signature"
+            onclick="popupCode('Helpers.src/M000022.html');return false;">
           <span class="method-name">list</span><span class="method-args">(opts={}, &amp;block)</span>
           </a>
         </div>
       
         <div class="method-description">
           <p>
-A <a href="Helpers.html#M000025">list</a> view is coded as a simple
-unordered <a href="Helpers.html#M000025">list</a> containing linked <a
-href="Helpers.html#M000025">list</a> items with a
+A <a href="Helpers.html#M000022">list</a> view is coded as a simple
+unordered <a href="Helpers.html#M000022">list</a> containing linked <a
+href="Helpers.html#M000022">list</a> items with a
 data-role=&quot;listview&quot; attribute. jQuery Mobile will apply all the
-necessary styles to transform the <a href="Helpers.html#M000025">list</a>
-into a mobile-friendly <a href="Helpers.html#M000025">list</a> view with
+necessary styles to transform the <a href="Helpers.html#M000022">list</a>
+into a mobile-friendly <a href="Helpers.html#M000022">list</a> view with
 right arrow indicator that fills the full width of the browser window. When
-you tap on the <a href="Helpers.html#M000025">list</a> <a
-href="Helpers.html#M000027">item</a>, the framework will trigger a click on
-the first <a href="Helpers.html#M000028">link</a> inside the <a
-href="Helpers.html#M000025">list</a> <a
-href="Helpers.html#M000027">item</a>, issue an AJAX request for the URL in
-the <a href="Helpers.html#M000028">link</a>, create the new <a
-href="Helpers.html#M000011">page</a> in the DOM, then kick off a <a
-href="Helpers.html#M000011">page</a> transition.
+you tap on the <a href="Helpers.html#M000022">list</a> <a
+href="Helpers.html#M000024">item</a>, the framework will trigger a click on
+the first <a href="Helpers.html#M000025">link</a> inside the <a
+href="Helpers.html#M000022">list</a> <a
+href="Helpers.html#M000024">item</a>, issue an AJAX request for the URL in
+the <a href="Helpers.html#M000025">link</a>, create the new <a
+href="Helpers.html#M000008">page</a> in the DOM, then kick off a <a
+href="Helpers.html#M000008">page</a> transition.
 </p>
 <p>
 Example:
@@ -721,19 +941,24 @@ Example:
       = counter('3')
 </pre>
 <dl>
-<dt>filter</dt><dd>Determine if search filter will show up or not
+<dt>:filter</dt><dd>Determine if search filter will show up or not
+
+</dd>
+<dt>:ordered</dt><dd>Create ordered <a href="Helpers.html#M000022">list</a> instead of unordered
+(Use &#8216;<a href="Helpers.html#M000023">ordered_list</a>&#8217; method
+for this)
 
 </dd>
 </dl>
         </div>
       </div>
 
-      <div id="method-M000010" class="method-detail">
-        <a name="M000010"></a>
+      <div id="method-M000007" class="method-detail">
+        <a name="M000007"></a>
 
         <div class="method-heading">
-          <a href="Helpers.src/M000010.html" target="Code" class="method-signature"
-            onclick="popupCode('Helpers.src/M000010.html');return false;">
+          <a href="Helpers.src/M000007.html" target="Code" class="method-signature"
+            onclick="popupCode('Helpers.src/M000007.html');return false;">
           <span class="method-name">mobile_include</span><span class="method-args">(opts={})</span>
           </a>
         </div>
@@ -750,31 +975,42 @@ library somewhere else by:
 <p>
 This method should be placed right after %head tag.
 </p>
+<p>
+Additional options:
+</p>
+<dl>
+<dt>:scale</dt><dd>Set initial scale of display (Default: 1)
+
+</dd>
+<dt>:no_jquery</dt><dd>Disable inclusion of JQuery library
+
+</dd>
+</dl>
         </div>
       </div>
 
-      <div id="method-M000015" class="method-detail">
-        <a name="M000015"></a>
+      <div id="method-M000012" class="method-detail">
+        <a name="M000012"></a>
 
         <div class="method-heading">
-          <a href="Helpers.src/M000015.html" target="Code" class="method-signature"
-            onclick="popupCode('Helpers.src/M000015.html');return false;">
+          <a href="Helpers.src/M000012.html" target="Code" class="method-signature"
+            onclick="popupCode('Helpers.src/M000012.html');return false;">
           <span class="method-name">navbar</span><span class="method-args">(opts={}, &amp;block)</span>
           </a>
         </div>
       
         <div class="method-description">
           <p>
-A <a href="Helpers.html#M000015">navbar</a> is coded as an unordered <a
-href="Helpers.html#M000025">list</a> of links wrapped in a container
+A <a href="Helpers.html#M000012">navbar</a> is coded as an unordered <a
+href="Helpers.html#M000022">list</a> of links wrapped in a container
 element that has the data-role=&quot;<a
-href="Helpers.html#M000015">navbar</a>&quot; attribute. To set one of links
+href="Helpers.html#M000012">navbar</a>&quot; attribute. To set one of links
 to the active (selected) state, add class=&quot;ui-btn-active&quot; to the
 anchor. In this example, we have a two-<a
-href="Helpers.html#M000019">button</a> <a
-href="Helpers.html#M000015">navbar</a> in the <a
-href="Helpers.html#M000017">footer</a> with the &quot;One&quot; <a
-href="Helpers.html#M000027">item</a> set to active
+href="Helpers.html#M000016">button</a> <a
+href="Helpers.html#M000012">navbar</a> in the <a
+href="Helpers.html#M000014">footer</a> with the &quot;One&quot; <a
+href="Helpers.html#M000024">item</a> set to active
 </p>
 <p>
 This helper will generate:
@@ -789,27 +1025,27 @@ This helper will generate:
 Additional properties that could be set:
 </p>
 <dl>
-<dt>theme</dt><dd>Change mobile theme (&#8216;a&#8217;..&#8217;f&#8217;)
+<dt>:theme</dt><dd>Change mobile theme (&#8216;a&#8217;..&#8217;f&#8217;)
 
 </dd>
 </dl>
         </div>
       </div>
 
-      <div id="method-M000016" class="method-detail">
-        <a name="M000016"></a>
+      <div id="method-M000013" class="method-detail">
+        <a name="M000013"></a>
 
         <div class="method-heading">
-          <a href="Helpers.src/M000016.html" target="Code" class="method-signature"
-            onclick="popupCode('Helpers.src/M000016.html');return false;">
+          <a href="Helpers.src/M000013.html" target="Code" class="method-signature"
+            onclick="popupCode('Helpers.src/M000013.html');return false;">
           <span class="method-name">navigate_to</span><span class="method-args">(url, label, opts={})</span>
           </a>
         </div>
       
         <div class="method-description">
           <p>
-This helper will generate a <a href="Helpers.html#M000028">link</a> inside
-&#8216;<a href="Helpers.html#M000015">navbar</a>&#8217; block:
+This helper will generate a <a href="Helpers.html#M000025">link</a> inside
+&#8216;<a href="Helpers.html#M000012">navbar</a>&#8217; block:
 </p>
 <pre>
   - navbar do
@@ -831,47 +1067,17 @@ Will produce:
 Additional properties that could be set:
 </p>
 <dl>
-<dt>theme</dt><dd>Change mobile theme (&#8216;a&#8217;..&#8217;f&#8217;)
+<dt>:theme</dt><dd>Change mobile theme (&#8216;a&#8217;..&#8217;f&#8217;)
 
 </dd>
-<dt>icon</dt><dd>Icon to use, eg. &#8216;delete&#8217; (refer to jquery mobile icon names)
+<dt>:icon</dt><dd>Icon to use, eg. &#8216;delete&#8217; (refer to jquery mobile icon names)
 
 </dd>
-<dt>active</dt><dd>This will make current navigation <a href="Helpers.html#M000027">item</a>
+<dt>:active</dt><dd>This will make current navigation <a href="Helpers.html#M000024">item</a>
 active
 
 </dd>
 </dl>
-        </div>
-      </div>
-
-      <div id="method-M000029" class="method-detail">
-        <a name="M000029"></a>
-
-        <div class="method-heading">
-          <a href="Helpers.src/M000029.html" target="Code" class="method-signature"
-            onclick="popupCode('Helpers.src/M000029.html');return false;">
-          <span class="method-name">nested_item</span><span class="method-args">(title, opts={}, &amp;block)</span>
-          </a>
-        </div>
-      
-        <div class="method-description">
-          <p>
-This will allow you to create a &#8216;nested&#8217; <a
-href="Helpers.html#M000025">list</a> <a
-href="Helpers.html#M000027">item</a>. Instead of showing just one single
-line in <a href="Helpers.html#M000025">list</a> <a
-href="Helpers.html#M000027">item</a> this will show a <a
-href="Helpers.html#M000012">header</a> and text on bottom.
-</p>
-<p>
-Example:
-</p>
-<pre>
-  - list do
-    - nested_item 'This is item header', :theme =&gt; 'b' do
-      This is item content
-</pre>
         </div>
       </div>
 
@@ -881,34 +1087,76 @@ Example:
         <div class="method-heading">
           <a href="Helpers.src/M000026.html" target="Code" class="method-signature"
             onclick="popupCode('Helpers.src/M000026.html');return false;">
+          <span class="method-name">nested_item</span><span class="method-args">(title, opts={}, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+This will allow you to create a &#8216;nested&#8217; <a
+href="Helpers.html#M000022">list</a> <a
+href="Helpers.html#M000024">item</a>. Instead of showing just one single
+line in <a href="Helpers.html#M000022">list</a> <a
+href="Helpers.html#M000024">item</a> this will show a <a
+href="Helpers.html#M000009">header</a> and text on bottom.
+</p>
+<p>
+Example:
+</p>
+<pre>
+  - list do
+    - nested_item 'This is item header', :theme =&gt; 'b' do
+      This is item content
+</pre>
+<p>
+Options:
+</p>
+<p>
+See &#8216;<a href="Helpers.html#M000024">item</a>&#8217; method
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000023" class="method-detail">
+        <a name="M000023"></a>
+
+        <div class="method-heading">
+          <a href="Helpers.src/M000023.html" target="Code" class="method-signature"
+            onclick="popupCode('Helpers.src/M000023.html');return false;">
           <span class="method-name">ordered_list</span><span class="method-args">(opts={}, &amp;block)</span>
           </a>
         </div>
       
         <div class="method-description">
           <p>
-Same as &#8216;<a href="Helpers.html#M000025">list</a>&#8217; but instead
-of creating a unorder <a href="Helpers.html#M000025">list</a> will create
-an ordered <a href="Helpers.html#M000025">list</a>
+Same as &#8216;<a href="Helpers.html#M000022">list</a>&#8217; but instead
+of creating a unorder <a href="Helpers.html#M000022">list</a> will create
+an ordered <a href="Helpers.html#M000022">list</a>
+</p>
+<p>
+Options:
+</p>
+<p>
+See &#8216;<a href="Helpers.html#M000022">list</a>&#8217; method
 </p>
         </div>
       </div>
 
-      <div id="method-M000011" class="method-detail">
-        <a name="M000011"></a>
+      <div id="method-M000008" class="method-detail">
+        <a name="M000008"></a>
 
         <div class="method-heading">
-          <a href="Helpers.src/M000011.html" target="Code" class="method-signature"
-            onclick="popupCode('Helpers.src/M000011.html');return false;">
+          <a href="Helpers.src/M000008.html" target="Code" class="method-signature"
+            onclick="popupCode('Helpers.src/M000008.html');return false;">
           <span class="method-name">page</span><span class="method-args">(opts={}, &amp;block)</span>
           </a>
         </div>
       
         <div class="method-description">
           <p>
-The jQuery Mobile &quot;<a href="Helpers.html#M000011">page</a>&quot;
+The jQuery Mobile &quot;<a href="Helpers.html#M000008">page</a>&quot;
 structure is optimized to support either single pages, or local internal
-linked &quot;pages&quot; within a <a href="Helpers.html#M000011">page</a>.
+linked &quot;pages&quot; within a <a href="Helpers.html#M000008">page</a>.
 </p>
 <p>
 The goal of this model is to allow developers to create websites using best
@@ -927,10 +1175,10 @@ This helper will generate:
 Additional properties that could be set:
 </p>
 <dl>
-<dt>title</dt><dd>Set &#8216;data-title&#8217; attribute
+<dt>:title</dt><dd>Set &#8216;data-title&#8217; attribute
 
 </dd>
-<dt>theme</dt><dd>Change mobile theme (&#8216;a&#8217;..&#8217;f&#8217;)
+<dt>:theme</dt><dd>Change mobile theme (&#8216;a&#8217;..&#8217;f&#8217;)
 
 </dd>
 </dl>
@@ -945,12 +1193,297 @@ Example usage:
         </div>
       </div>
 
-      <div id="method-M000031" class="method-detail">
-        <a name="M000031"></a>
+      <div id="method-M000036" class="method-detail">
+        <a name="M000036"></a>
 
         <div class="method-heading">
-          <a href="Helpers.src/M000031.html" target="Code" class="method-signature"
-            onclick="popupCode('Helpers.src/M000031.html');return false;">
+          <a href="Helpers.src/M000036.html" target="Code" class="method-signature"
+            onclick="popupCode('Helpers.src/M000036.html');return false;">
+          <span class="method-name">radio</span><span class="method-args">(name, label=nil, options=[], opts={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Radio buttons are used to provide a <a href="Helpers.html#M000022">list</a>
+of options where only a single items can be selected. Traditional desktop
+<a href="Helpers.html#M000036">radio</a> buttons are not optimized for
+touch <a href="Helpers.html#M000031">input</a> so in jQuery Mobile, we
+style the label for the <a href="Helpers.html#M000036">radio</a> buttons so
+they are larger and look clickable. A custom set of icons are added to the
+label to provide additional visual feedback.
+</p>
+<p>
+Example:
+</p>
+<pre>
+  - form '/save' do
+    = radio :pet, 'Choose pet vertical', ['cat', :dog, 'hamster', 'honey badger']
+    = radio :pet, 'Choose pet', ['cat', :dog, 'hamster', 'honey badger'], :type =&gt; :horizontal
+</pre>
+<p>
+Options:
+</p>
+<dl>
+<dt>name</dt><dd>Element name
+
+</dd>
+<dt>label</dt><dd>Element label
+
+</dd>
+<dt>options</dt><dd>List of possible options. Use &#8216;Symbol&#8217; instead of
+&#8216;String&#8217; if you want to make some value &#8216;checked&#8216;
+
+</dd>
+<dt>:type</dt><dd>You can have &#8216;horizontal&#8217; or &#8216;vertical&#8217; <a
+href="Helpers.html#M000036">radio</a> group (Default: vertical)
+
+</dd>
+</dl>
+        </div>
+      </div>
+
+      <div id="method-M000032" class="method-detail">
+        <a name="M000032"></a>
+
+        <div class="method-heading">
+          <a href="Helpers.src/M000032.html" target="Code" class="method-signature"
+            onclick="popupCode('Helpers.src/M000032.html');return false;">
+          <span class="method-name">search_input</span><span class="method-args">(name, label=nil, opts={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Search inputs are a new HTML type that is styled with pill-shaped corners
+and adds a &quot;x&quot; icon to clear the field once you start typing.
+</p>
+<p>
+Example:
+</p>
+<pre>
+  - form 'save' do
+    = search_input :city, 'City'
+</pre>
+<p>
+Options:
+</p>
+<dl>
+<dt>name</dt><dd>Element name
+
+</dd>
+</dl>
+<p>
+For more options see &#8216;<a href="Helpers.html#M000031">input</a>&#8217;
+method.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000035" class="method-detail">
+        <a name="M000035"></a>
+
+        <div class="method-heading">
+          <a href="Helpers.src/M000035.html" target="Code" class="method-signature"
+            onclick="popupCode('Helpers.src/M000035.html');return false;">
+          <span class="method-name">select</span><span class="method-args">(name, label=nil, options=[], opts={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+The <a href="Helpers.html#M000035">select</a> menus are driven off native
+<a href="Helpers.html#M000035">select</a> elements, but the native selects
+are hidden from view and replaced with a custom-styled <a
+href="Helpers.html#M000035">select</a> <a
+href="Helpers.html#M000016">button</a> that matches the look and feel of
+the jQuery Mobile framework. The replacement selects are ARIA-enabled and
+are keyboard accessible on the desktop as well.
+</p>
+<p>
+Example:
+</p>
+<pre>
+  - form '/save' do
+    = select :pet, 'Select pet', ['Choose Pet', ['dog', 'Dog'], ['cat', 'Cat'], ['hamster', 'Hamster']]
+</pre>
+<dl>
+<dt>name</dt><dd>Element name
+
+</dd>
+<dt>label</dt><dd>Element label
+
+</dd>
+<dt>options</dt><dd>Array with <a href="Helpers.html#M000035">select</a> options. This array
+should contain two dimensional array with &#8216;value&#8217; and
+&#8216;name&#8217;. If array <a href="Helpers.html#M000024">item</a> is a
+string instead of array it&#8216;s used as <a
+href="Helpers.html#M000035">select</a> placeholder
+
+</dd>
+<dt>:native</dt><dd>Enable native elements (don&#8216;t use jquery.mobile UI)
+
+</dd>
+<dt>:theme</dt><dd>Change theme for this <a href="Helpers.html#M000035">select</a>
+
+</dd>
+</dl>
+        </div>
+      </div>
+
+      <div id="method-M000033" class="method-detail">
+        <a name="M000033"></a>
+
+        <div class="method-heading">
+          <a href="Helpers.src/M000033.html" target="Code" class="method-signature"
+            onclick="popupCode('Helpers.src/M000033.html');return false;">
+          <span class="method-name">slider</span><span class="method-args">(name, min, max, label=nil, opts={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+To add a <a href="Helpers.html#M000033">slider</a> widget to your <a
+href="Helpers.html#M000008">page</a>, start with an <a
+href="Helpers.html#M000031">input</a> with a new HTML5
+type=&quot;range&quot; attribute. Specify the value (current value), min
+and max attribute values to configure the <a
+href="Helpers.html#M000033">slider</a>.
+</p>
+<p>
+Example:
+</p>
+<pre>
+  - form '/save' do
+    = slider :cash, 0, 100, 'How much?'
+</pre>
+<p>
+Options:
+</p>
+<dl>
+<dt>name</dt><dd>Element name
+
+</dd>
+<dt>min</dt><dd>Starting value
+
+</dd>
+<dt>max</dt><dd>Maximum value
+
+</dd>
+<dt>label</dt><dd>Element label
+
+</dd>
+<dt>:value</dt><dd>Current value
+
+</dd>
+</dl>
+<p>
+For other options see &#8216;<a
+href="Helpers.html#M000031">input</a>&#8217; method
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000040" class="method-detail">
+        <a name="M000040"></a>
+
+        <div class="method-heading">
+          <a href="Helpers.src/M000040.html" target="Code" class="method-signature"
+            onclick="popupCode('Helpers.src/M000040.html');return false;">
+          <span class="method-name">submit</span><span class="method-args">(label=nil, opts={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Form submitter
+</p>
+<p>
+Example:
+</p>
+<pre>
+  - form do
+    = submit 'Submit this form'
+</pre>
+<p>
+Options:
+</p>
+<dl>
+<dt>label</dt><dd>Text displayed in <a href="Helpers.html#M000016">button</a> (Default:
+&#8216;Submit&#8217;)
+
+</dd>
+<dt>:theme</dt><dd>Change the default theme for <a href="Helpers.html#M000016">button</a>
+
+</dd>
+</dl>
+        </div>
+      </div>
+
+      <div id="method-M000038" class="method-detail">
+        <a name="M000038"></a>
+
+        <div class="method-heading">
+          <a href="Helpers.src/M000038.html" target="Code" class="method-signature"
+            onclick="popupCode('Helpers.src/M000038.html');return false;">
+          <span class="method-name">textarea</span><span class="method-args">(name, label=nil, opts={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+For multi-line text inputs, use a <a
+href="Helpers.html#M000038">textarea</a> element. The framework will
+auto-grow the height of the <a href="Helpers.html#M000038">textarea</a> to
+avoid the need for an internal scrollbar which is very hard to use on a
+mobile device.
+</p>
+<p>
+Examples:
+</p>
+<pre>
+  - form do
+    = textarea :text
+</pre>
+<p>
+Options:
+</p>
+<dl>
+<dt>name</dt><dd>Element name
+
+</dd>
+<dt>label</dt><dd>Element label
+
+</dd>
+<dt>:cols</dt><dd>Number of columns
+
+</dd>
+<dt>:rows</dt><dd>Number of rows
+
+</dd>
+<dt>:placeholder</dt><dd>See &#8216;<a href="Helpers.html#M000031">input</a>&#8216;
+
+</dd>
+<dt>:required</dt><dd>Make <a href="Helpers.html#M000038">textarea</a> required (HTML5)
+
+</dd>
+<dt>:<a href="Helpers.html#M000010">content</a></dt><dd>Insert some <a href="Helpers.html#M000010">content</a> into <a
+href="Helpers.html#M000038">textarea</a>
+
+</dd>
+<dt>:maxlength</dt><dd>Maximum text length (HTML5)
+
+</dd>
+</dl>
+        </div>
+      </div>
+
+      <div id="method-M000028" class="method-detail">
+        <a name="M000028"></a>
+
+        <div class="method-heading">
+          <a href="Helpers.src/M000028.html" target="Code" class="method-signature"
+            onclick="popupCode('Helpers.src/M000028.html');return false;">
           <span class="method-name">thumb</span><span class="method-args">(image_url)</span>
           </a>
         </div>
@@ -958,8 +1491,8 @@ Example usage:
         <div class="method-description">
           <p>
 This will allow you to add an thumbnail on right side of <a
-href="Helpers.html#M000025">list</a> <a
-href="Helpers.html#M000027">item</a>.
+href="Helpers.html#M000022">list</a> <a
+href="Helpers.html#M000024">item</a>.
 </p>
 <p>
 Example:
@@ -970,6 +1503,45 @@ Example:
       = thumb '/images/computer.png'
       Computer
 </pre>
+        </div>
+      </div>
+
+      <div id="method-M000034" class="method-detail">
+        <a name="M000034"></a>
+
+        <div class="method-heading">
+          <a href="Helpers.src/M000034.html" target="Code" class="method-signature"
+            onclick="popupCode('Helpers.src/M000034.html');return false;">
+          <span class="method-name">toogle</span><span class="method-args">(name, label=nil, opts={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+A binary &quot;flip&quot; switch is a common UI element on mobile devices
+that is used for any binary on/off or true/false type of data <a
+href="Helpers.html#M000031">input</a>. You can either drag the flip handle
+like a <a href="Helpers.html#M000033">slider</a> or tap on each half of the
+switch.
+</p>
+<p>
+Example:
+</p>
+<pre>
+  - form '/save' do
+    = toogle :question, 'Be or not to be?'
+</pre>
+<p>
+Options:
+</p>
+<dl>
+<dt>:first</dt><dd>Replace default &#8216;on&#8217; with custom text
+
+</dd>
+<dt>:second</dt><dd>Replace default &#8216;off&#8217; with custom text
+
+</dd>
+</dl>
         </div>
       </div>
 

@@ -5,21 +5,19 @@
 
 <html>
 <head>
-  <title>nested_item (RBMobile::Helpers)</title>
+  <title>divider (RBMobile::Helpers)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/mobile_helpers.rb, line 503</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">nested_item</span>(<span class="ruby-identifier">title</span>, <span class="ruby-identifier">opts</span>={}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-      <span class="ruby-identifier">original_block</span> = <span class="ruby-identifier">block</span>
-      <span class="ruby-identifier">new_block</span> = <span class="ruby-constant">Proc</span><span class="ruby-operator">::</span><span class="ruby-identifier">new</span> <span class="ruby-keyword kw">do</span>
-        <span class="ruby-identifier">haml_tag</span> <span class="ruby-identifier">:h3</span> <span class="ruby-keyword kw">do</span>
+  <pre><span class="ruby-comment cmt"># File lib/mobile_helpers.rb, line 613</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">divider</span>(<span class="ruby-identifier">title</span>, <span class="ruby-identifier">opts</span>={})
+      <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:element</span>] = <span class="ruby-identifier">:li</span>
+      <span class="ruby-identifier">capture_haml</span> <span class="ruby-keyword kw">do</span>
+        <span class="ruby-identifier">role</span> <span class="ruby-value str">'list-divider'</span><span class="ruby-value str">'list-divider'</span>, <span class="ruby-identifier">opts</span> <span class="ruby-keyword kw">do</span>
           <span class="ruby-identifier">haml_concat</span> <span class="ruby-identifier">title</span>
         <span class="ruby-keyword kw">end</span>
-        <span class="ruby-identifier">original_block</span>.<span class="ruby-identifier">call</span>
       <span class="ruby-keyword kw">end</span>
-      <span class="ruby-identifier">item</span>(<span class="ruby-identifier">opts</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">new_block</span>)
     <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

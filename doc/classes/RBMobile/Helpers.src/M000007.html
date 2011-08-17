@@ -5,14 +5,19 @@
 
 <html>
 <head>
-  <title>content (RBMobile::Helpers)</title>
+  <title>mobile_include (RBMobile::Helpers)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/mobile_helpers.rb, line 146</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">content</span>(<span class="ruby-identifier">opts</span>={}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-      <span class="ruby-identifier">role</span> <span class="ruby-identifier">:content</span>, <span class="ruby-identifier">opts</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
+  <pre><span class="ruby-comment cmt"># File lib/mobile_helpers.rb, line 111</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">mobile_include</span>(<span class="ruby-identifier">opts</span>={})
+      <span class="ruby-identifier">capture_haml</span> <span class="ruby-keyword kw">do</span>
+        <span class="ruby-identifier">haml_tag</span> <span class="ruby-identifier">:meta</span>, <span class="ruby-identifier">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'viewport'</span>, <span class="ruby-identifier">:content</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;width=device-width, initial-scale=#{opts[:scale] || '1'}&quot;</span>
+        <span class="ruby-identifier">haml_tag</span> <span class="ruby-identifier">:script</span>, <span class="ruby-identifier">:type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'text/javascript'</span>, <span class="ruby-identifier">:src</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">RBMobile</span><span class="ruby-operator">::</span><span class="ruby-identifier">config</span>[<span class="ruby-identifier">:jquery_path</span>] <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:no_jquery</span>]
+        <span class="ruby-identifier">haml_tag</span> <span class="ruby-identifier">:link</span>, <span class="ruby-identifier">:rel</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'stylesheet'</span>, <span class="ruby-identifier">:href</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">RBMobile</span><span class="ruby-operator">::</span><span class="ruby-identifier">config</span>[<span class="ruby-identifier">:mobile_css_path</span>]
+        <span class="ruby-identifier">haml_tag</span> <span class="ruby-identifier">:script</span>, <span class="ruby-identifier">:type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'text/javascript'</span>, <span class="ruby-identifier">:src</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">RBMobile</span><span class="ruby-operator">::</span><span class="ruby-identifier">config</span>[<span class="ruby-identifier">:mobile_js_path</span>]
+      <span class="ruby-keyword kw">end</span>
     <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

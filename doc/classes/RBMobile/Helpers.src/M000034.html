@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>toogle (RBMobile::Helpers)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/mobile_helpers.rb, line 751</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">toogle</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">label</span>=<span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">opts</span>={})
+      <span class="ruby-identifier">capture_haml</span> <span class="ruby-keyword kw">do</span>
+        <span class="ruby-identifier">form_field</span> <span class="ruby-keyword kw">do</span>
+          <span class="ruby-identifier">haml_tag</span> <span class="ruby-identifier">:label</span>, <span class="ruby-identifier">:for</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">name</span> <span class="ruby-keyword kw">do</span>
+            <span class="ruby-identifier">haml_concat</span> <span class="ruby-identifier">label</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">capitalize</span>
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-identifier">haml_tag</span> <span class="ruby-identifier">:select</span>, <span class="ruby-identifier">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">name</span>, <span class="ruby-value str">'data-role'</span><span class="ruby-value str">'data-role'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'slider'</span> <span class="ruby-keyword kw">do</span>
+            <span class="ruby-identifier">haml_tag</span> <span class="ruby-identifier">:option</span>, <span class="ruby-identifier">:value</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:first</span>] <span class="ruby-operator">||</span> <span class="ruby-value str">'on'</span> <span class="ruby-keyword kw">do</span>
+              <span class="ruby-identifier">haml_concat</span> <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:first</span>] <span class="ruby-operator">?</span> <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:first</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">capitalize</span> <span class="ruby-operator">:</span> <span class="ruby-value str">'On'</span>
+            <span class="ruby-keyword kw">end</span>
+            <span class="ruby-identifier">haml_tag</span> <span class="ruby-identifier">:option</span>, <span class="ruby-identifier">:value</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:second</span>] <span class="ruby-operator">||</span> <span class="ruby-value str">'off'</span> <span class="ruby-keyword kw">do</span>
+              <span class="ruby-identifier">haml_concat</span> <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:second</span>] <span class="ruby-operator">?</span> <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:second</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">capitalize</span> <span class="ruby-operator">:</span> <span class="ruby-value str">'Off'</span>
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -5,20 +5,14 @@
 
 <html>
 <head>
-  <title>collapse (RBMobile::Helpers)</title>
+  <title>ordered_list (RBMobile::Helpers)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/mobile_helpers.rb, line 389</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">collapse</span>(<span class="ruby-identifier">title</span>, <span class="ruby-identifier">opts</span>={}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-      <span class="ruby-identifier">opts</span>[<span class="ruby-value str">'data-collapsed'</span><span class="ruby-value str">'data-collapsed'</span>] = <span class="ruby-value str">'true'</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:collapsed</span>) <span class="ruby-keyword kw">or</span> <span class="ruby-ivar">@collapsed</span>
-      <span class="ruby-identifier">role</span> <span class="ruby-identifier">:collapsible</span>, <span class="ruby-identifier">opts</span> <span class="ruby-keyword kw">do</span>
-        <span class="ruby-identifier">haml_tag</span> <span class="ruby-identifier">:h3</span> <span class="ruby-keyword kw">do</span>
-          <span class="ruby-identifier">haml_concat</span> <span class="ruby-identifier">title</span>
-        <span class="ruby-keyword kw">end</span>
-        <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>
-      <span class="ruby-keyword kw">end</span>
+  <pre><span class="ruby-comment cmt"># File lib/mobile_helpers.rb, line 499</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">ordered_list</span>(<span class="ruby-identifier">opts</span>={}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+      <span class="ruby-identifier">list</span>(<span class="ruby-identifier">opts</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">:ordered</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>), <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
     <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

@@ -14,14 +14,24 @@
 module RBMobile
 
   # Assume jquery.mobile installed in public/jquery.mobile-1.0b2/
+  # NOTE: I tested this helper set with version 1.0b2 but you can of course
+  #       use any latest/older version at your own risk.
+  #       Please don't fill any tickets regarding to the jquery.mobile when
+  #       you're using other version than 1.0b2. Only tickets that will be not
+  #       deleted will be those with attached patch :-)
+  #
   JQUERY_MOBILE_VERSION = 'jquery.mobile-1.0b2'
 
   # Assume jquery library installed in public/jquery-1.6.2.min.js
+  # I don't think that jquery.mobile rely on exact JQuery version.
   JQUERY_VERSION = 'jquery-1.6.2'
 
   # Default configuration
   @configuration = {
-    :ajax => true
+    :ajax => true,
+    :mobile_css_path => "/#{JQUERY_MOBILE_VERSION}/#{JQUERY_MOBILE_VERSION}.min.css",
+    :mobile_js_path => "/#{JQUERY_MOBILE_VERSION}/#{JQUERY_MOBILE_VERSION}.min.js",
+    :jquery_path => "/#{JQUERY_VERSION}.min.js"
   }
 
   # You can disable or enable configuration properties
@@ -47,6 +57,30 @@ module RBMobile
     @configuration[bool] = false
   end
 
+  # Set URI path to jquery.mobile CSS file
+  #
+  # Default: "/#{JQUERY_MOBILE_VERSION}/#{JQUERY_MOBILE_VERSION}.min.css"
+  #
+  def self.jquery_mobile_css_path(path)
+    @configuration[:mobile_css_path] = path
+  end
+
+  # Set URI path to jquery.mobile javascript file
+  #
+  # Default: "/#{JQUERY_MOBILE_VERSION}/#{JQUERY_MOBILE_VERSION}.min.js"
+  #
+  def self.jquery_mobile_js_path(path)
+    @configuration[:mobile_js_path] = path
+  end
+
+  # Set URI path to jquery library
+  #
+  # Default: "/#{JQUERY_VERSION}.min.js"
+  #
+  def self.jquery_path(path)
+    @configuration[:jquery_path] = path
+  end
+
   # This module should be included as a view helper
   # In Sinatra you need to do following:
   #
@@ -69,14 +103,17 @@ module RBMobile
     #
     # This method should be placed right after %head tag.
     #
+    # Additional options:
+    #
+    # [:scale]  Set initial scale of display (Default: 1)
+    # [:no_jquery]  Disable inclusion of JQuery library
+    #
     def mobile_include(opts={})
       capture_haml do
-        haml_tag :meta, :name => 'viewport', :content => 'width=device-width, initial-scale=1'
-        haml_tag :link, :rel => 'stylesheet', :href => "/#{JQUERY_MOBILE_VERSION}/#{JQUERY_MOBILE_VERSION}.min.css"
-        unless opts[:no_jquery]
-          haml_tag :script, :type => 'text/javascript', :src => "/#{JQUERY_VERSION}.min.js"
-        end
-        haml_tag :script, :type => 'text/javascript', :src => "/#{JQUERY_MOBILE_VERSION}/#{JQUERY_MOBILE_VERSION}.min.js"
+        haml_tag :meta, :name => 'viewport', :content => "width=device-width, initial-scale=#{opts[:scale] || '1'}"
+        haml_tag :script, :type => 'text/javascript', :src => RBMobile::config[:jquery_path] unless opts[:no_jquery]
+        haml_tag :link, :rel => 'stylesheet', :href => RBMobile::config[:mobile_css_path]
+        haml_tag :script, :type => 'text/javascript', :src => RBMobile::config[:mobile_js_path]
       end
     end
 
@@ -95,8 +132,8 @@ module RBMobile
     #
     # Additional properties that could be set:
     #
-    # [title] Set 'data-title' attribute
-    # [theme] Change mobile theme ('a'..'f')
+    # [:title] Set 'data-title' attribute
+    # [:theme] Change mobile theme ('a'..'f')
     #
     # Example usage:
     #
@@ -125,7 +162,7 @@ module RBMobile
     #
     # Additional properties that could be set:
     #
-    # [theme] Change mobile theme ('a'..'f')
+    # [:theme] Change mobile theme ('a'..'f')
     #
     def header(opts={}, &block)
       opts.merge!(:'data-position' => 'inline')
@@ -141,7 +178,7 @@ module RBMobile
     #
     # Additional properties that could be set:
     #
-    # [theme] Change mobile theme ('a'..'f')
+    # [:theme] Change mobile theme ('a'..'f')
 
     def content(opts={}, &block)
       role :content, opts, &block
@@ -162,7 +199,7 @@ module RBMobile
     #
     # Additional properties that could be set:
     #
-    # [theme] Change mobile theme ('a'..'f')
+    # [:theme] Change mobile theme ('a'..'f')
 
     def dialog(opts={}, &block)
       role :dialog, opts, &block
@@ -187,7 +224,7 @@ module RBMobile
     #
     # Additional properties that could be set:
     #
-    # [theme] Change mobile theme ('a'..'f')
+    # [:theme] Change mobile theme ('a'..'f')
 
     def navbar(opts={}, &block)
       role :navbar, opts do
@@ -214,9 +251,9 @@ module RBMobile
     #
     # Additional properties that could be set:
     #
-    # [theme]   Change mobile theme ('a'..'f')
-    # [icon]    Icon to use, eg. 'delete' (refer to jquery mobile icon names)
-    # [active]  This will make current navigation item active
+    # [:theme]   Change mobile theme ('a'..'f')
+    # [:icon]    Icon to use, eg. 'delete' (refer to jquery mobile icon names)
+    # [:active]  This will make current navigation item active
     #
     def navigate_to(url, label, opts={})
       options = {
@@ -246,9 +283,9 @@ module RBMobile
     #
     # Additional properties that could be set:
     #
-    # [theme]   Change mobile theme ('a'..'f')
-    # [uibar]   Include padding on the bar
-    # [fixed]   Fixed toolbars will re-appear after you scroll
+    # [:theme]   Change mobile theme ('a'..'f')
+    # [:uibar]   Include padding on the bar
+    # [:fixed]   Fixed toolbars will re-appear after you scroll
 
     def footer(opts={}, &block)
       opts.merge!(:class => "ui-bar") if opts.delete(:uibar)
@@ -299,8 +336,8 @@ module RBMobile
     # [kind]  Define icon used for button
     # [url]   Where to move after click
     # [label] Text displayed in button
-    # [theme] Change mobile theme ('a'..'f')
-    # [ajax]  Overide default AJAX setting
+    # [:theme] Change mobile theme ('a'..'f')
+    # [:ajax]  Overide default AJAX setting
 
     def button(kind, url, label, opts={})
       options = {
@@ -384,7 +421,8 @@ module RBMobile
 	  #     <p>I'm the collapsible content. By default I'm open and displayed on the page, but you can click the header to hide me.</p>
 	  #   </div>
     #
-    # [collapsed] Determine whenever this block is collapsed or not
+    # [title]      Give title to collapsable block
+    # [:collapsed] Determine whenever this block is collapsed or not
     #
     def collapse(title, opts={}, &block)
       opts[:'data-collapsed'] = 'true' if opts.delete(:collapsed) or @collapsed
@@ -411,6 +449,10 @@ module RBMobile
     #     - collapse 'This is collapsible' do
     #       Hello world!
     #
+    # Attributes:
+    #
+    # [:theme]  Change default theme
+    #
     def collapse_set(opts={}, &block)
       @collapsed = true
       role :'collapsible-set', opts do
@@ -434,7 +476,8 @@ module RBMobile
     #       Hello World!
     #       = counter('3')
     #
-    # [filter] Determine if search filter will show up or not
+    # [:filter] Determine if search filter will show up or not
+    # [:ordered] Create ordered list instead of unordered (Use 'ordered_list' method for this)
     #
     def list(opts={}, &block)
       opts[:element] = opts.delete(:ordered) ? :ol : :ul
@@ -449,6 +492,10 @@ module RBMobile
     # Same as 'list' but instead of creating a unorder list will create an
     # ordered list
     #
+    # Options:
+    #
+    # See 'list' method
+    #
     def ordered_list(opts={}, &block)
       list(opts.merge(:ordered => true), &block)
     end
@@ -459,9 +506,9 @@ module RBMobile
     #
     # Options:
     #
-    # [icon] Define the right icon in list
-    # [theme] Change default theme for single list item
-    # [item_icon_url] Allow to display custom (64x64) icon on the left side
+    # [:icon] Define the right icon in list
+    # [:theme] Change default theme for single list item
+    # [:item_icon_url] Allow to display custom (64x64) icon on the left side
     #
     def item(opts={}, &block)
       opts[:'data-icon'] = opts.delete(:icon) if opts[:icon]
@@ -479,6 +526,10 @@ module RBMobile
     #   - list do
     #     - link 'a.html', :icon => 'alert' do
     #       This item will send you to a.html
+    #
+    # Options:
+    #
+    # See 'item' method
     #
     def link(url, opts={}, &block)
       original_block = block
@@ -499,6 +550,10 @@ module RBMobile
     #   - list do
     #     - nested_item 'This is item header', :theme => 'b' do
     #       This is item content
+    #
+    # Options:
+    #
+    # See 'item' method
     #
     def nested_item(title, opts={}, &block)
       original_block = block
@@ -551,6 +606,10 @@ module RBMobile
     #     - item do
     #       Andreas Muller
     #
+    # Options:
+    #
+    # [:theme]  Change default theme for divider (broken in jquery.mobile 1.0b2)
+    #
     def divider(title, opts={})
       opts[:element] = :li
       capture_haml do
@@ -560,6 +619,22 @@ module RBMobile
       end
     end
 
+    # Wrapper for all HTML forms
+    #
+    # Example:
+    #
+    #   - form '/save', :post do
+    #     = input :name, :text, 'Name'
+    #     = textarea :text
+    #     = search_input :city, 'City'
+    #     = toogle :switch, 'Switch'
+    #
+    # Options:
+    #
+    # [url]     URL that handle the form data processing on the server
+    # [method]  HTTP method to use (Default: POST)
+    # [:ajax]   Overide default AJAX setting for this form
+    #
     def form(url, method=:post, opts={}, &block)
       opts.merge!(
         :method => method,
@@ -571,6 +646,31 @@ module RBMobile
       end
     end
 
+    # Text inputs and textareas are coded with standard HTML elements, then
+    # enhanced by jQuery Mobile to make them more attractive and useable on a
+    # mobile.
+    #
+    # Example:
+    #
+    #   - form '/save' do
+    #     = input :name, :text, 'Name'
+    #     = input :surname, :text, 'Name', :required => true
+    #
+    # Options:
+    #
+    # [name]  Element name
+    # [kind]  Element type (:text, :radio, :checkbox, ...)
+    # [label] Element label (if nil, it will use 'name' as label)
+    # [:value]  Default value for this input box
+    # [:placeholder]  As soon as you click on (or tab to) the input field, the placeholder text disappears (HTML5)
+    # [:required] Mark this input as required (HTML5)
+    # [:patter] Validate value using regular expression (HTML5)
+    # [:min]  Minimal value
+    # [:max]  Maximum value
+    # [:maxlength]  Maximum string length
+    # [:checked] Mark this input as 'checked' (used in :checkbox os :radio 'kind')
+    # [:no_complete] Disable autocompletetion
+    #
     def input(name, kind, label=nil, opts={})
       capture_haml do
         form_field do
@@ -587,12 +687,67 @@ module RBMobile
       end
     end
 
+    # Search inputs are a new HTML type that is styled with pill-shaped corners
+    # and adds a "x" icon to clear the field once you start typing.
+    #
+    # Example:
+    #
+    #   - form 'save' do
+    #     = search_input :city, 'City'
+    #
+    # Options:
+    #
+    # [name]  Element name
+    #
+    # For more options see 'input' method.
+    #
     def search_input(name, label=nil, opts={})
       input(name, :search, label, {
         :'data-type' => :search,
       }.merge(opts))
     end
 
+    # To add a slider widget to your page, start with an input with a new HTML5
+    # type="range" attribute. Specify the value (current value), min and max
+    # attribute values to configure the slider.
+    #
+    # Example:
+    #
+    #   - form '/save' do
+    #     = slider :cash, 0, 100, 'How much?'
+    #
+    # Options:
+    #
+    # [name] Element name
+    # [min]  Starting value
+    # [max]  Maximum value
+    # [label] Element label
+    # [:value]  Current value
+    #
+    # For other options see 'input' method
+    #
+    def slider(name, min, max, label=nil, opts={})
+      input(name, :range, label, {
+        :min => min,
+        :max => max
+      }.merge(opts))
+    end
+
+    # A binary "flip" switch is a common UI element on mobile devices that is
+    # used for any binary on/off or true/false type of data input. You can
+    # either drag the flip handle like a slider or tap on each half of the
+    # switch.
+    #
+    # Example:
+    #
+    #   - form '/save' do
+    #     = toogle :question, 'Be or not to be?'
+    #
+    # Options:
+    #
+    # [:first]  Replace default 'on' with custom text
+    # [:second] Replace default 'off' with custom text
+    #
     def toogle(name, label=nil, opts={})
       capture_haml do
         form_field do
@@ -611,6 +766,25 @@ module RBMobile
       end
     end
 
+    # The select menus are driven off native select elements, but the native
+    # selects are hidden from view and replaced with a custom-styled select
+    # button that matches the look and feel of the jQuery Mobile framework. The
+    # replacement selects are ARIA-enabled and are keyboard accessible on the
+    # desktop as well.
+    #
+    # Example:
+    #
+    #   - form '/save' do
+    #     = select :pet, 'Select pet', ['Choose Pet', ['dog', 'Dog'], ['cat', 'Cat'], ['hamster', 'Hamster']]
+    #
+    # [name]  Element name
+    # [label] Element label
+    # [options] Array with select options. This array should contain two
+    #           dimensional array with 'value' and 'name'. If array item is a string
+    #           instead of array it's used as select placeholder
+    # [:native] Enable native elements (don't use jquery.mobile UI)
+    # [:theme]  Change theme for this select
+    #
     def select(name, label=nil, options=[], opts={})
       opts = {
         :'data-native-menu' => opts.delete(:native) ? 'true' : 'false',
@@ -634,6 +808,25 @@ module RBMobile
       end
     end
 
+    # Radio buttons are used to provide a list of options where only a single
+    # items can be selected. Traditional desktop radio buttons are not optimized
+    # for touch input so in jQuery Mobile, we style the label for the radio
+    # buttons so they are larger and look clickable. A custom set of icons are
+    # added to the label to provide additional visual feedback.
+    #
+    # Example:
+    #
+    #   - form '/save' do
+    #     = radio :pet, 'Choose pet vertical', ['cat', :dog, 'hamster', 'honey badger']
+    #     = radio :pet, 'Choose pet', ['cat', :dog, 'hamster', 'honey badger'], :type => :horizontal
+    #
+    # Options:
+    #
+    # [name]  Element name
+    # [label] Element label
+    # [options] List of possible options. Use 'Symbol' instead of 'String' if you want to make some value 'checked'
+    # [:type] You can have 'horizontal' or 'vertical' radio group (Default: vertical)
+    #
     def radio(name, label=nil, options=[], opts={})
       capture_haml do
         form_field do
@@ -653,6 +846,31 @@ module RBMobile
       end
     end
 
+    # Checkboxes are used to provide a list of options where more than one can
+    # be selected. Traditional desktop checkboxes are not optimized for touch
+    # input so in jQuery Mobile, we style the label for the checkboxes so they
+    # are larger and look clickable. A custom set of icons are added to the
+    # label to provide additional visual feedback.
+
+    # Both the radio and checkbox controls below use standard input/label
+    # markup, but are styled to be more touch-friendly. The styled control you
+    # see is actually the label element, which sits over the real input, so if
+    # images fail to load, you'll still have a functional control. In most
+    # browsers, clicking the label automatically triggers a click on the input,
+    # but we've had to trigger the update manually for a few mobile browsers
+    # that don't do this natively. On the desktop, these controls are keyboard
+    # and screen-reader accessible.
+    #
+    # Examples:
+    #
+    #   - form do
+    #     = checkbox :pet, 'Choose multiple pets', ['cat', :dog, 'hamster', 'honey badger']
+    #     = checkbox :pet, 'Choose multiple pets horizontal', ['cat', :dog, 'hamster', 'honey badger'], :type => :horizontal
+    #
+    # Options:
+    #
+    # See 'radio' method.
+    #
     def checkbox(name, label=nil, options=[], opts={})
       capture_haml do
         form_field do
@@ -672,6 +890,26 @@ module RBMobile
       end
     end
 
+    # For multi-line text inputs, use a textarea element. The framework will
+    # auto-grow the height of the textarea to avoid the need for an internal
+    # scrollbar which is very hard to use on a mobile device.
+    #
+    # Examples:
+    #
+    #   - form do
+    #     = textarea :text
+    #
+    # Options:
+    #
+    # [name]  Element name
+    # [label] Element label
+    # [:cols] Number of columns
+    # [:rows] Number of rows
+    # [:placeholder] See 'input'
+    # [:required] Make textarea required (HTML5)
+    # [:content]  Insert some content into textarea
+    # [:maxlength]  Maximum text length (HTML5)
+    #
     def textarea(name, label=nil, opts={})
       capture_haml do
         form_field do
@@ -687,10 +925,28 @@ module RBMobile
       end
     end
 
+    # Basic wrapper for all form fields
+    #
+    # Options:
+    #
+    # [:theme]  Change default theme
+    #
     def form_field(opts={}, &block)
       role :'fieldcontain', opts, &block
     end
 
+    # Form submitter
+    #
+    # Example:
+    #
+    #   - form do
+    #     = submit 'Submit this form'
+    #
+    # Options:
+    #
+    # [label]   Text displayed in button (Default: 'Submit')
+    # [:theme]  Change the default theme for button
+    #
     def submit(label=nil, opts={})
       opts = {
         :'data-theme' => opts.delete(:theme)

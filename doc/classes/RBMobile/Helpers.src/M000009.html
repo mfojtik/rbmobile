@@ -5,18 +5,15 @@
 
 <html>
 <head>
-  <title>navbar (RBMobile::Helpers)</title>
+  <title>header (RBMobile::Helpers)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/mobile_helpers.rb, line 192</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">navbar</span>(<span class="ruby-identifier">opts</span>={}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-      <span class="ruby-identifier">role</span> <span class="ruby-identifier">:navbar</span>, <span class="ruby-identifier">opts</span> <span class="ruby-keyword kw">do</span>
-        <span class="ruby-identifier">haml_tag</span> <span class="ruby-identifier">:ul</span> <span class="ruby-keyword kw">do</span>
-          <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">block_given?</span>
-        <span class="ruby-keyword kw">end</span>
-      <span class="ruby-keyword kw">end</span>
+  <pre><span class="ruby-comment cmt"># File lib/mobile_helpers.rb, line 167</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">header</span>(<span class="ruby-identifier">opts</span>={}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+      <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-value str">'data-position'</span><span class="ruby-value str">'data-position'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'inline'</span>)
+      <span class="ruby-identifier">role</span> <span class="ruby-identifier">:header</span>, <span class="ruby-identifier">opts</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
     <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

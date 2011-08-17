@@ -5,19 +5,16 @@
 
 <html>
 <head>
-  <title>divider (RBMobile::Helpers)</title>
+  <title>search_input (RBMobile::Helpers)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/mobile_helpers.rb, line 554</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">divider</span>(<span class="ruby-identifier">title</span>, <span class="ruby-identifier">opts</span>={})
-      <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:element</span>] = <span class="ruby-identifier">:li</span>
-      <span class="ruby-identifier">capture_haml</span> <span class="ruby-keyword kw">do</span>
-        <span class="ruby-identifier">role</span> <span class="ruby-value str">'list-divider'</span><span class="ruby-value str">'list-divider'</span>, <span class="ruby-identifier">opts</span> <span class="ruby-keyword kw">do</span>
-          <span class="ruby-identifier">haml_concat</span> <span class="ruby-identifier">title</span>
-        <span class="ruby-keyword kw">end</span>
-      <span class="ruby-keyword kw">end</span>
+  <pre><span class="ruby-comment cmt"># File lib/mobile_helpers.rb, line 704</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">search_input</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">label</span>=<span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">opts</span>={})
+      <span class="ruby-identifier">input</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">:search</span>, <span class="ruby-identifier">label</span>, {
+        <span class="ruby-value str">'data-type'</span><span class="ruby-value str">'data-type'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:search</span>,
+      }.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">opts</span>))
     <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

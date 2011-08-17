@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>select (RBMobile::Helpers)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/mobile_helpers.rb, line 788</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">select</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">label</span>=<span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">options</span>=[], <span class="ruby-identifier">opts</span>={})
+      <span class="ruby-identifier">opts</span> = {
+        <span class="ruby-value str">'data-native-menu'</span><span class="ruby-value str">'data-native-menu'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:native</span>) <span class="ruby-operator">?</span> <span class="ruby-value str">'true'</span> <span class="ruby-operator">:</span> <span class="ruby-value str">'false'</span>,
+        <span class="ruby-value str">'data-theme'</span><span class="ruby-value str">'data-theme'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:theme</span>)
+      }.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">opts</span>)
+      <span class="ruby-identifier">capture_haml</span> <span class="ruby-keyword kw">do</span>
+        <span class="ruby-identifier">form_field</span> <span class="ruby-keyword kw">do</span>
+          <span class="ruby-identifier">haml_tag</span> <span class="ruby-identifier">:label</span>, <span class="ruby-identifier">:for</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">name</span> <span class="ruby-keyword kw">do</span>
+            <span class="ruby-identifier">haml_concat</span> <span class="ruby-identifier">label</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">capitalize</span>
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-identifier">haml_tag</span> <span class="ruby-identifier">:select</span>, { <span class="ruby-identifier">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">name</span> }.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">opts</span>) <span class="ruby-keyword kw">do</span>
+            <span class="ruby-identifier">options</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">option</span><span class="ruby-operator">|</span>
+              <span class="ruby-identifier">option</span> = [<span class="ruby-identifier">option</span>] <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">option</span>.<span class="ruby-identifier">kind_of?</span> <span class="ruby-constant">Array</span>
+              <span class="ruby-comment cmt"># One-item array will create a placeholder</span>
+              <span class="ruby-identifier">haml_tag</span> <span class="ruby-identifier">:option</span>, <span class="ruby-identifier">:value</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">option</span>.<span class="ruby-identifier">size</span><span class="ruby-operator">==</span><span class="ruby-value">2</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">option</span>.<span class="ruby-identifier">first</span> <span class="ruby-operator">:</span> <span class="ruby-keyword kw">nil</span>, <span class="ruby-value str">'data-placeholder'</span><span class="ruby-value str">'data-placeholder'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">option</span>.<span class="ruby-identifier">size</span><span class="ruby-operator">==</span><span class="ruby-value">1</span> <span class="ruby-operator">?</span> <span class="ruby-value str">'true'</span> <span class="ruby-operator">:</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-keyword kw">do</span>
+                <span class="ruby-identifier">haml_concat</span> <span class="ruby-identifier">option</span>.<span class="ruby-identifier">last</span>
+              <span class="ruby-keyword kw">end</span>
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>
