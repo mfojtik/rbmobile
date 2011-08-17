@@ -88,8 +88,7 @@ app/helpers/application_helper.rb:
 
 ### TODO:
 
-- Finish with jquery.mobile forms
-- Make public directory configurable
+- Wait for issues? :-)
 
 ### LICENSE:
 
